@@ -1,0 +1,1823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>VIRELLE</title>
+  <link rel="stylesheet" href="styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet" />
+</head>
+<body class="min-h-screen">
+  <!-- NAV -->
+  <header class="fixed top-0 inset-x-0 z-50">
+    <nav class="bg-[#0f1111] text-white">
+      <div class="max-w-7xl mx-auto px-5 sm:px-6 py-3 flex items-center justify-between gap-4">
+        <a href="#home" class="flex items-center gap-3 group" data-nav="home">
+          <div class="w-9 h-9 rounded-xl grid place-items-center glass" aria-hidden="true">
+            <span class="brand-serif text-[14px] text-black/80">V</span>
+          </div>
+          <div class="leading-tight">
+            <div class="brand-serif tracking-[.18em] text-[13px]">VIRELLE</div>
+            <div class="text-[11px] text-white/70">Modern luxury, effortless silhouette.</div>
+          </div>
+        </a>
+
+        <div class="hidden md:flex items-center gap-1 text-sm">
+          <a class="nav-link" href="#home" data-page="home" aria-current="page">Home</a>
+          
+          <div class="nav-dd" data-dropdown="ready">
+            <button class="nav-link nav-dd-trigger" id="ddReadyBtn" type="button" aria-haspopup="menu" aria-expanded="false" aria-controls="ddReadyMenu">
+              Ready-to-Wear
+              <span class="nav-dd-caret" aria-hidden="true">▾</span>
+            </button>
+            <div class="nav-dd-menu" id="ddReadyMenu" role="menu" aria-labelledby="ddReadyBtn">
+              <button class="nav-dd-item" type="button" role="menuitem" data-navaction="ready" data-sub="All">All</button>
+              <button class="nav-dd-item" type="button" role="menuitem" data-navaction="ready" data-sub="Dresses">Dresses</button>
+              <button class="nav-dd-item" type="button" role="menuitem" data-navaction="ready" data-sub="Tops">Tops</button>
+              <button class="nav-dd-item" type="button" role="menuitem" data-navaction="ready" data-sub="Bottoms">Bottoms</button>
+              <button class="nav-dd-item" type="button" role="menuitem" data-navaction="ready" data-sub="Blazers">Blazers</button>
+              <button class="nav-dd-item" type="button" role="menuitem" data-navaction="ready" data-sub="Outerwear">Outerwear</button>
+              <button class="nav-dd-item" type="button" role="menuitem" data-navaction="ready" data-sub="Co-ords">Co-ords</button>
+              <button class="nav-dd-item" type="button" role="menuitem" data-navaction="ready" data-sub="Knitwear">Knitwear</button>
+            </div>
+          </div>
+          
+          <div class="nav-dd" data-dropdown="accessories">
+            <button class="nav-link nav-dd-trigger" id="ddAccessoriesBtn" type="button" aria-haspopup="menu" aria-expanded="false" aria-controls="ddAccessoriesMenu">
+              Accessories
+              <span class="nav-dd-caret" aria-hidden="true">▾</span>
+            </button>
+            <div class="nav-dd-menu" id="ddAccessoriesMenu" role="menu" aria-labelledby="ddAccessoriesBtn">
+              <button class="nav-dd-item" type="button" role="menuitem" data-navaction="accessories" data-sub="Jewelry">Jewelry</button>
+              <button class="nav-dd-item" type="button" role="menuitem" data-navaction="accessories" data-sub="Bags">Bags</button>
+              <button class="nav-dd-item" type="button" role="menuitem" data-navaction="accessories" data-sub="Watches">Watches</button>
+              <button class="nav-dd-item" type="button" role="menuitem" data-navaction="accessories" data-sub="Sunglasses">Sunglasses</button>
+              <button class="nav-dd-item" type="button" role="menuitem" data-navaction="accessories" data-sub="Hats">Hats</button>
+            </div>
+          </div>
+
+          <a class="nav-link" href="#new" data-page="home" data-scroll="#new-arrivals">New Arrivals</a>
+          
+          <div class="nav-dd" data-dropdown="fragrance">
+            <button class="nav-link nav-dd-trigger" id="ddFragranceBtn" type="button" aria-haspopup="menu" aria-expanded="false" aria-controls="ddFragranceMenu">
+              Fragrances
+              <span class="nav-dd-caret" aria-hidden="true">▾</span>
+            </button>
+            <div class="nav-dd-menu" id="ddFragranceMenu" role="menu" aria-labelledby="ddFragranceBtn">
+              <button class="nav-dd-item" type="button" role="menuitem" data-navaction="fragrance" data-sub="All">All</button>
+              <button class="nav-dd-item" type="button" role="menuitem" data-navaction="fragrance" data-sub="Bella Vita">Bella Vita</button>
+              <button class="nav-dd-item" type="button" role="menuitem" data-navaction="fragrance" data-sub="Floral">Floral</button>
+              <button class="nav-dd-item" type="button" role="menuitem" data-navaction="fragrance" data-sub="Woody">Woody</button>
+              <button class="nav-dd-item" type="button" role="menuitem" data-navaction="fragrance" data-sub="Citrus">Citrus</button>
+              <button class="nav-dd-item" type="button" role="menuitem" data-navaction="fragrance" data-sub="Musk">Musk</button>
+              <button class="nav-dd-item" type="button" role="menuitem" data-navaction="fragrance" data-sub="Oud">Oud</button>
+              <button class="nav-dd-item" type="button" role="menuitem" data-navaction="fragrance" data-sub="Vanilla">Vanilla</button>
+              <button class="nav-dd-item" type="button" role="menuitem" data-navaction="fragrance" data-sub="Fresh">Fresh</button>
+              <button class="nav-dd-item" type="button" role="menuitem" data-navaction="fragrance" data-sub="Luxury Collections">Luxury Collections</button>
+            </div>
+          </div>
+
+          <div class="nav-dd" data-dropdown="skincare">
+            <button class="nav-link nav-dd-trigger" id="ddSkincareBtn" type="button" aria-haspopup="menu" aria-expanded="false" aria-controls="ddSkincareMenu">
+              Skincare
+              <span class="nav-dd-caret" aria-hidden="true">▾</span>
+            </button>
+            <div class="nav-dd-menu" id="ddSkincareMenu" role="menu" aria-labelledby="ddSkincareBtn">
+              <button class="nav-dd-item" type="button" role="menuitem" data-navaction="skincare" data-sub="Cleansers">Cleansers</button>
+              <button class="nav-dd-item" type="button" role="menuitem" data-navaction="skincare" data-sub="Moisturizers">Moisturizers</button>
+              <button class="nav-dd-item" type="button" role="menuitem" data-navaction="skincare" data-sub="Serums">Serums</button>
+              <button class="nav-dd-item" type="button" role="menuitem" data-navaction="skincare" data-sub="Sunscreen">Sunscreen</button>
+              <button class="nav-dd-item" type="button" role="menuitem" data-navaction="skincare" data-sub="Masks">Masks</button>
+            </div>
+          </div>
+
+          <a class="nav-link" href="#contact" data-page="home" data-scroll="#contact">Contact</a>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <button class="btn btn-ghost hidden sm:inline-flex" id="btnSearch" type="button" aria-label="Search">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M10.5 19a8.5 8.5 0 1 1 0-17 8.5 8.5 0 0 1 0 17Z" stroke="currentColor" stroke-width="1.6"/><path d="M16.9 16.9 21 21" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            <span class="hidden lg:inline">Search</span>
+          </button>
+          <button class="btn btn-ghost relative" id="btnCart" type="button" aria-label="Cart">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 7h14l-2 9H8L7 7Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M7 7 6 3H3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M10 20a1 1 0 1 0 0-2 1 1 0 0 0 0 2ZM18 20a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" stroke="currentColor" stroke-width="1.6"/></svg>
+            <span class="hidden lg:inline">Cart</span>
+            <span id="cartBadge" class="absolute -top-2 -right-1 min-w-[18px] h-[18px] px-1 rounded-full bg-white text-black text-[11px] grid place-items-center border border-black/10">0</span>
+          </button>
+          <button class="md:hidden btn btn-ghost" id="btnMenu" type="button" aria-label="Open menu" aria-expanded="false">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile menu -->
+      <div id="mobileMenu" class="hidden md:hidden border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-5 sm:px-6 py-3 flex flex-col gap-1 text-sm">
+          <a class="nav-link" href="#home" data-page="home">Home</a>
+          
+          <details class="nav-details">
+            <summary class="nav-link nav-summary" aria-label="Ready-to-Wear menu">
+              Ready-to-Wear <span class="nav-dd-caret" aria-hidden="true">▾</span>
+            </summary>
+            <div class="nav-details-panel">
+              <button class="nav-dd-item" type="button" data-navaction="ready" data-sub="All">All</button>
+              <button class="nav-dd-item" type="button" data-navaction="ready" data-sub="Dresses">Dresses</button>
+              <button class="nav-dd-item" type="button" data-navaction="ready" data-sub="Tops">Tops</button>
+              <button class="nav-dd-item" type="button" data-navaction="ready" data-sub="Bottoms">Bottoms</button>
+              <button class="nav-dd-item" type="button" data-navaction="ready" data-sub="Blazers">Blazers</button>
+              <button class="nav-dd-item" type="button" data-navaction="ready" data-sub="Outerwear">Outerwear</button>
+              <button class="nav-dd-item" type="button" data-navaction="ready" data-sub="Co-ords">Co-ords</button>
+              <button class="nav-dd-item" type="button" data-navaction="ready" data-sub="Knitwear">Knitwear</button>
+            </div>
+          </details>
+
+          <details class="nav-details">
+            <summary class="nav-link nav-summary" aria-label="Accessories menu">
+              Accessories <span class="nav-dd-caret" aria-hidden="true">▾</span>
+            </summary>
+            <div class="nav-details-panel">
+              <button class="nav-dd-item" type="button" data-navaction="accessories" data-sub="Jewelry">Jewelry</button>
+              <button class="nav-dd-item" type="button" data-navaction="accessories" data-sub="Bags">Bags</button>
+              <button class="nav-dd-item" type="button" data-navaction="accessories" data-sub="Watches">Watches</button>
+              <button class="nav-dd-item" type="button" data-navaction="accessories" data-sub="Sunglasses">Sunglasses</button>
+              <button class="nav-dd-item" type="button" data-navaction="accessories" data-sub="Hats">Hats</button>
+            </div>
+          </details>
+
+          <a class="nav-link" href="#new" data-page="home" data-scroll="#new-arrivals">New Arrivals</a>
+          
+          <details class="nav-details">
+            <summary class="nav-link nav-summary" aria-label="Fragrances menu">
+              Fragrances <span class="nav-dd-caret" aria-hidden="true">▾</span>
+            </summary>
+            <div class="nav-details-panel">
+              <button class="nav-dd-item" type="button" data-navaction="fragrance" data-sub="All">All</button>
+              <button class="nav-dd-item" type="button" data-navaction="fragrance" data-sub="Bella Vita">Bella Vita</button>
+              <button class="nav-dd-item" type="button" data-navaction="fragrance" data-sub="Floral">Floral</button>
+              <button class="nav-dd-item" type="button" data-navaction="fragrance" data-sub="Woody">Woody</button>
+              <button class="nav-dd-item" type="button" data-navaction="fragrance" data-sub="Citrus">Citrus</button>
+              <button class="nav-dd-item" type="button" data-navaction="fragrance" data-sub="Musk">Musk</button>
+              <button class="nav-dd-item" type="button" data-navaction="fragrance" data-sub="Oud">Oud</button>
+              <button class="nav-dd-item" type="button" data-navaction="fragrance" data-sub="Vanilla">Vanilla</button>
+              <button class="nav-dd-item" type="button" data-navaction="fragrance" data-sub="Fresh">Fresh</button>
+              <button class="nav-dd-item" type="button" data-navaction="fragrance" data-sub="Luxury Collections">Luxury Collections</button>
+            </div>
+          </details>
+
+          <details class="nav-details">
+            <summary class="nav-link nav-summary" aria-label="Skincare menu">
+              Skincare <span class="nav-dd-caret" aria-hidden="true">▾</span>
+            </summary>
+            <div class="nav-details-panel">
+              <button class="nav-dd-item" type="button" data-navaction="skincare" data-sub="Cleansers">Cleansers</button>
+              <button class="nav-dd-item" type="button" data-navaction="skincare" data-sub="Moisturizers">Moisturizers</button>
+              <button class="nav-dd-item" type="button" data-navaction="skincare" data-sub="Serums">Serums</button>
+              <button class="nav-dd-item" type="button" data-navaction="skincare" data-sub="Sunscreen">Sunscreen</button>
+              <button class="nav-dd-item" type="button" data-navaction="skincare" data-sub="Masks">Masks</button>
+            </div>
+          </details>
+
+          <a class="nav-link" href="#contact" data-page="home" data-scroll="#contact">Contact</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- MAIN -->
+  <main class="pt-[92px]">
+    <!-- HOME -->
+    <section id="page-home" class="fade-in">
+      <!-- Hero -->
+      <section id="home" class="max-w-7xl mx-auto px-5 sm:px-6 pt-7 sm:pt-10 pb-10">
+        <div class="grid lg:grid-cols-12 gap-6 items-stretch">
+          <div class="lg:col-span-7 card p-6 sm:p-8 relative overflow-hidden">
+            <div class="absolute inset-0 opacity-[.18]" aria-hidden="true" style="background:
+              radial-gradient(520px 240px at 18% 20%, rgba(201,162,125,.85), transparent 60%),
+              radial-gradient(500px 260px at 88% 18%, rgba(195,214,207,.95), transparent 60%),
+              linear-gradient(180deg, rgba(0,0,0,.02), rgba(0,0,0,.00));"></div>
+
+            <div class="relative">
+              <div class="flex flex-wrap gap-2 mb-5">
+                <span class="chip">Premium edit</span>
+                <span class="chip">Pastel neutrals</span>
+                <span class="chip">Limited drops</span>
+              </div>
+              <h2 class="brand-serif section-title text-4xl sm:text-5xl">A clean luxury wardrobe, curated for now.</h2>
+              <p class="mt-4 text-[15px] sm:text-[16px] text-black/70 max-w-xl">
+                Minimal lines, impeccable tailoring, soft neutrals — discover elevated essentials that feel modern and timeless.
+              </p>
+              <div class="mt-7 flex flex-wrap gap-3">
+                <a class="btn btn-primary" href="#ready-to-wear" data-page="ready">
+                  Shop Ready-to-Wear
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h12" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="m13 6 6 6-6 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+                <a class="btn btn-ghost" href="#new" data-scroll="#new-arrivals">Explore New Arrivals</a>
+              </div>
+
+              <div class="mt-8 grid grid-cols-3 gap-4">
+                <div class="glass rounded-2xl p-4 border border-black/5">
+                  <div class="text-xs text-black/60">Free delivery</div>
+                  <div class="mt-1 font-medium">On orders over $120</div>
+                </div>
+                <div class="glass rounded-2xl p-4 border border-black/5">
+                  <div class="text-xs text-black/60">Express returns</div>
+                  <div class="mt-1 font-medium">14‑day window</div>
+                </div>
+                <div class="glass rounded-2xl p-4 border border-black/5">
+                  <div class="text-xs text-black/60">Members</div>
+                  <div class="mt-1 font-medium">Early access drops</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-5 grid sm:grid-cols-2 lg:grid-cols-1 gap-6">
+            <div class="card img-zoom">
+              <div class="relative h-[260px] sm:h-[280px] lg:h-[250px] overflow-hidden">
+                <img alt="Editorial look" class="w-full h-full object-cover" src="https://i.pinimg.com/1200x/23/a3/59/23a3594fbb34f1d82830a4676454caee.jpg" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent"></div>
+                <div class="absolute left-5 right-5 bottom-5">
+                  <div class="text-xs text-white/70">The Atelier Edit</div>
+                  <div class="brand-serif text-white text-2xl leading-tight">Evening silhouettes</div>
+                  <a class="mt-3 inline-flex items-center gap-2 text-white/90 hover:text-white text-sm" href="#ready-to-wear" data-page="ready">
+                    Shop gowns
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h12" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="m13 6 6 6-6 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="card img-zoom">
+              <div class="relative h-[260px] sm:h-[280px] lg:h-[250px] overflow-hidden">
+                <img alt="Tailoring" class="w-full h-full object-cover" src="https://i.pinimg.com/1200x/6e/9f/4a/6e9f4a84c17979828c42f2ec586ecc2d.jpg" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent"></div>
+                <div class="absolute left-5 right-5 bottom-5">
+                  <div class="text-xs text-white/70">Precision tailoring</div>
+                  <div class="brand-serif text-white text-2xl leading-tight">Blazers & outerwear</div>
+                  <a class="mt-3 inline-flex items-center gap-2 text-white/90 hover:text-white text-sm" href="#ready-to-wear" data-page="ready">
+                    Shop outerwear
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h12" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="m13 6 6 6-6 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Most sold-out -->
+      <section class="max-w-7xl mx-auto px-5 sm:px-6 pb-12">
+        <div class="flex items-end justify-between gap-4">
+          <div>
+            <h3 class="brand-serif section-title text-3xl">Most sold‑out outfits</h3>
+            <p class="mt-2 text-sm text-black/65">A glimpse at what disappeared first — back soon.</p>
+          </div>
+          <a class="text-sm text-black/70 hover:text-black" href="#ready-to-wear" data-page="ready">Shop similar</a>
+        </div>
+        <div id="soldOutGrid" class="mt-6 grid sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+      </section>
+
+      <!-- Trending outfits -->
+      <section class="max-w-7xl mx-auto px-5 sm:px-6 pb-12">
+        <div class="flex items-end justify-between gap-4">
+          <div>
+            <h3 class="brand-serif section-title text-3xl">Trending outfits</h3>
+            <p class="mt-2 text-sm text-black/65">The silhouettes everyone is saving right now.</p>
+          </div>
+          <a class="text-sm text-black/70 hover:text-black" href="#ready-to-wear" data-page="ready">Shop trending</a>
+        </div>
+        <div id="trendingOutfitsGrid" class="mt-6 grid sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+      </section>
+
+      <!-- Shop by category -->
+      <section class="max-w-7xl mx-auto px-5 sm:px-6 pb-12">
+        <div class="flex items-end justify-between gap-4">
+          <div>
+            <h3 class="brand-serif section-title text-3xl">Shop by category</h3>
+            <p class="mt-2 text-sm text-black/65">Tops, bottoms, and outerwear — styled for a calm, luxury capsule.</p>
+          </div>
+          <a class="text-sm text-black/70 hover:text-black" href="#ready-to-wear" data-page="ready">View all</a>
+        </div>
+        <div class="mt-6 grid md:grid-cols-3 gap-6">
+          <button type="button" class="card img-zoom text-left" data-page="ready" data-setcategory="Tops">
+            <div class="relative h-[220px] overflow-hidden">
+              <img alt="Tops" class="w-full h-full object-cover" src="https://i.pinimg.com/1200x/ce/6b/cf/ce6bcf8afd61d6d5c22666e81334d8b8.jpg" loading="lazy" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent"></div>
+              <div class="absolute left-5 right-5 bottom-5">
+                <div class="text-xs text-white/70 tracking-[.18em]">TOPS</div>
+                <div class="brand-serif text-white text-2xl leading-tight">Draped & minimal</div>
+                <div class="mt-2 text-sm text-white/80">Shop tops →</div>
+              </div>
+            </div>
+          </button>
+          <button type="button" class="card img-zoom text-left" data-page="ready" data-setcategory="Bottoms">
+            <div class="relative h-[220px] overflow-hidden">
+              <img alt="Bottoms" class="w-full h-full object-cover" src="https://i.pinimg.com/1200x/2d/40/c3/2d40c39a750c977163f9473d7bc99bb6.jpg" loading="lazy" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent"></div>
+              <div class="absolute left-5 right-5 bottom-5">
+                <div class="text-xs text-white/70 tracking-[.18em]">BOTTOMS</div>
+                <div class="brand-serif text-white text-2xl leading-tight">Clean lines</div>
+                <div class="mt-2 text-sm text-white/80">Shop bottoms →</div>
+              </div>
+            </div>
+          </button>
+          <button type="button" class="card img-zoom text-left" data-page="ready" data-setcategory="Outerwear">
+            <div class="relative h-[220px] overflow-hidden">
+              <img alt="Outerwear" class="w-full h-full object-cover" src="https://i.pinimg.com/1200x/3f/2b/4c/3f2b4cf988a0e89ab2f18212cce770fa.jpg" loading="lazy" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent"></div>
+              <div class="absolute left-5 right-5 bottom-5">
+                <div class="text-xs text-white/70 tracking-[.18em]">OUTERWEAR</div>
+                <div class="brand-serif text-white text-2xl leading-tight">Tailored layers</div>
+                <div class="mt-2 text-sm text-white/80">Shop outerwear →</div>
+              </div>
+            </div>
+          </button>
+        </div>
+      </section>
+
+      <!-- Best sellers -->
+      <section class="max-w-7xl mx-auto px-5 sm:px-6 pb-12">
+        <div class="flex items-end justify-between gap-4">
+          <div>
+            <h3 class="brand-serif section-title text-3xl">Best sellers</h3>
+            <p class="mt-2 text-sm text-black/65">Everyday icons, elevated.</p>
+          </div>
+          <div class="flex gap-2">
+            <button class="btn btn-ghost px-4 py-2" type="button" id="bsPrev" aria-label="Scroll best sellers left">←</button>
+            <button class="btn btn-ghost px-4 py-2" type="button" id="bsNext" aria-label="Scroll best sellers right">→</button>
+          </div>
+        </div>
+        <div id="bestSellersRow" class="mt-6 flex gap-6 overflow-x-auto pb-2 h-scroll snap-x snap-mandatory"></div>
+      </section>
+
+      <!-- Limited edition -->
+      <section id="limited-edition" class="max-w-7xl mx-auto px-5 sm:px-6 pb-12">
+        <div class="card p-6 sm:p-8">
+          <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+            <div>
+              <h3 class="brand-serif section-title text-3xl">Limited edition pieces</h3>
+              <p class="mt-2 text-sm text-black/65 max-w-2xl">A curated edit of exclusive styles, crafted for rarity, collectability, and seasonal shine.</p>
+              <div class="mt-4 flex flex-wrap gap-2" id="collectionChips"></div>
+              <div id="limitedEditionFeatured" class="mt-6"></div>
+            </div>
+            <div class="flex gap-3">
+              <a class="btn btn-primary" href="#ready-to-wear" data-page="ready">Shop limited edition</a>
+              <a class="btn btn-ghost" href="#featured" data-scroll="#featured">View featured</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Featured products -->
+      <section id="featured" class="max-w-7xl mx-auto px-5 sm:px-6 pb-12">
+        <div class="flex items-end justify-between gap-4">
+          <div>
+            <h3 class="brand-serif section-title text-3xl">Featured products</h3>
+            <p class="mt-2 text-sm text-black/65">Premium details, refined finishes.</p>
+          </div>
+        </div>
+        <div id="featuredGrid" class="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+      </section>
+
+      <!-- Promotions -->
+      <section class="max-w-7xl mx-auto px-5 sm:px-6 pb-12">
+        <div class="grid lg:grid-cols-12 gap-6">
+          <div class="lg:col-span-7 card overflow-hidden">
+            <div class="grid sm:grid-cols-2">
+              <div class="p-6 sm:p-8">
+                <div class="text-xs tracking-[.18em] text-black/55">LIMITED DROP</div>
+                <h3 class="mt-2 brand-serif section-title text-3xl">Neutral co‑ords, perfected.</h3>
+                <p class="mt-3 text-sm text-black/65">A clean set you can dress up or down — designed to move with you.</p>
+                <div class="mt-6 flex gap-3">
+                  <a class="btn btn-primary" href="#ready-to-wear" data-page="ready">Shop co‑ords</a>
+                  <button class="btn btn-ghost" type="button" id="btnNotify">Notify me</button>
+                </div>
+              </div>
+              <div class="relative h-[260px] sm:h-auto img-zoom">
+                <img alt="Co-ords" class="w-full h-full object-cover" src="https://i.pinimg.com/1200x/61/7f/83/617f832f884ef181e273dfdb5ded3ea9.jpg" />
+                <div class="absolute inset-0 bg-gradient-to-l from-black/15 via-transparent to-transparent"></div>
+              </div>
+            </div>
+          </div>
+          <div class="lg:col-span-5 grid gap-6">
+            <div class="card p-6 sm:p-8">
+              <div class="text-xs tracking-[.18em] text-black/55">MEMBER BENEFIT</div>
+              <h3 class="mt-2 brand-serif section-title text-2xl">Early access to new arrivals</h3>
+              <p class="mt-3 text-sm text-black/65">Get first pick on limited runs and seasonal drops.</p>
+              <div class="mt-5 flex gap-3">
+                <button class="btn btn-primary" id="btnJoin" type="button">Join Virelle</button>
+                <a class="btn btn-ghost" href="#contact" data-scroll="#contact">Contact us</a>
+              </div>
+            </div>
+            <div class="card p-6 sm:p-8">
+              <div class="text-xs tracking-[.18em] text-black/55">GIFTING</div>
+              <h3 class="mt-2 brand-serif section-title text-2xl">Signature packaging</h3>
+              <p class="mt-3 text-sm text-black/65">Luxury wrapping included on request — a minimal ribbon finish.</p>
+              <div class="mt-5">
+                <span class="chip">Complimentary</span>
+                <span class="chip">Eco materials</span>
+                <span class="chip">Hand‑finished</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- New Arrivals -->
+      <section id="new-arrivals" class="max-w-7xl mx-auto px-5 sm:px-6 pb-14">
+        <div class="flex items-end justify-between gap-4">
+          <div>
+            <h3 class="brand-serif section-title text-3xl">New arrivals</h3>
+            <p class="mt-2 text-sm text-black/65">Fresh silhouettes in soft neutral tones.</p>
+          </div>
+          <a class="text-sm text-black/70 hover:text-black" href="#ready-to-wear" data-page="ready">Shop all</a>
+        </div>
+        <div id="newArrivalsGrid" class="mt-6 grid sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+      </section>
+
+      <!-- Best Seller Fragrances -->
+      <section class="max-w-7xl mx-auto px-5 sm:px-6 pb-14">
+        <div class="flex items-end justify-between gap-4">
+          <div>
+            <h3 class="brand-serif section-title text-3xl">Best seller fragrances</h3>
+            <p class="mt-2 text-sm text-black/65">Popular perfumes in elegant, luxury cards.</p>
+          </div>
+          <a class="text-sm text-black/70 hover:text-black" href="#fragrances" data-page="fragrance">Shop fragrances</a>
+        </div>
+        <div id="bestSellerFragrancesGrid" class="mt-6 grid sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+      </section>
+    </section>
+
+    <!-- READY-TO-WEAR -->
+    <section id="page-ready" class="hidden fade-in">
+      <section id="ready-to-wear" class="max-w-7xl mx-auto px-5 sm:px-6 pt-7 sm:pt-10 pb-6">
+        <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
+          <div>
+            <h2 class="brand-serif section-title text-4xl sm:text-5xl">Ready‑to‑Wear</h2>
+            <p class="mt-3 text-[15px] text-black/65 max-w-2xl">Explore refined essentials — dresses, tailoring, outerwear, knits, and elevated daywear.</p>
+            <div class="mt-4 flex flex-wrap gap-2" id="rtwCategories"></div>
+          </div>
+          <div class="card p-4 sm:p-5 w-full lg:w-[420px]">
+            <label class="text-xs tracking-[.18em] text-black/55" for="searchInput">SEARCH</label>
+            <div class="mt-2 flex gap-2">
+              <input id="searchInput" class="w-full bg-white/70 border border-black/10 rounded-2xl px-4 py-3 text-sm outline-none focus:border-black/20 focus:bg-white" placeholder="Search products (e.g. blazer, satin, knit)" />
+              <button class="btn btn-primary px-5" id="btnClear" type="button">Clear</button>
+            </div>
+            <div class="mt-3 flex items-center justify-between text-xs text-black/55">
+              <span id="resultCount">0 items</span>
+              <button class="underline hover:text-black" id="btnViewHome" type="button">Back to Home</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="max-w-7xl mx-auto px-5 sm:px-6 pb-14">
+        <div id="rtwGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"></div>
+      </section>
+    </section>
+
+    <!-- FRAGRANCES -->
+    <section id="page-fragrance" class="hidden fade-in">
+      <section id="fragrances" class="max-w-7xl mx-auto px-5 sm:px-6 pt-7 sm:pt-10 pb-6">
+        <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
+          <div>
+            <h2 class="brand-serif section-title text-4xl sm:text-5xl">Fragrances</h2>
+            <p class="mt-3 text-[15px] text-black/65 max-w-2xl">Soft florals, clean musks, and warm ambers — a minimal fragrance wardrobe that feels quietly luxurious.</p>
+            <div class="mt-4 flex flex-wrap gap-2" id="fragFamilies"></div>
+          </div>
+          <div class="card p-4 sm:p-5 w-full lg:w-[420px]">
+            <label class="text-xs tracking-[.18em] text-black/55" for="fragSearch">SEARCH</label>
+            <div class="mt-2 flex gap-2">
+              <input id="fragSearch" class="w-full bg-white/70 border border-black/10 rounded-2xl px-4 py-3 text-sm outline-none focus:border-black/20 focus:bg-white" placeholder="Search scents (e.g. musk, amber, floral)" />
+              <button class="btn btn-primary px-5" id="btnFragClear" type="button">Clear</button>
+            </div>
+            <div class="mt-3 flex items-center justify-between text-xs text-black/55">
+              <span id="fragCount">0 items</span>
+              <button class="underline hover:text-black" id="btnFragHome" type="button">Back to Home</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="max-w-7xl mx-auto px-5 sm:px-6 pb-14">
+        <div id="fragGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"></div>
+      </section>
+    </section>
+
+    <!-- ACCESSORIES -->
+    <section id="page-accessories" class="hidden fade-in">
+      <section id="accessories" class="max-w-7xl mx-auto px-5 sm:px-6 pt-7 sm:pt-10 pb-6">
+        <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
+          <div>
+            <h2 class="brand-serif section-title text-4xl sm:text-5xl">Accessories</h2>
+            <p class="mt-3 text-[15px] text-black/65 max-w-2xl">Delicate jewelry and storybook watches to complete every outfit.</p>
+            <div class="mt-4 flex flex-wrap gap-2" id="accessoriesCategories"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="max-w-7xl mx-auto px-5 sm:px-6 pb-14">
+        <div id="accessoriesGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"></div>
+      </section>
+    </section>
+
+    <section id="page-skincare" class="hidden fade-in">
+      <section id="skincare" class="max-w-7xl mx-auto px-5 sm:px-6 pt-7 sm:pt-10 pb-6">
+        <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
+          <div>
+            <h2 class="brand-serif section-title text-4xl sm:text-5xl">Skincare</h2>
+            <p class="mt-3 text-[15px] text-black/65 max-w-2xl">Gentle and effective skincare products for your daily routine.</p>
+            <div class="mt-4 flex flex-wrap gap-2" id="skincareCategories"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="max-w-7xl mx-auto px-5 sm:px-6 pb-14">
+        <div id="skincareGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"></div>
+      </section>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="border-t border-black/10 bg-white/60">
+      <div class="max-w-7xl mx-auto px-5 sm:px-6 py-12 grid lg:grid-cols-12 gap-8">
+        <div class="lg:col-span-5">
+          <div class="brand-serif tracking-[.18em]">VIRELLE</div>
+          <p class="mt-3 text-sm text-black/65 max-w-md">Luxury essentials in pastel neutrals. Crafted with modern tailoring and a calm, premium shopping experience.</p>
+          <div class="mt-5 flex flex-wrap gap-2">
+            <span class="chip">Secure checkout</span>
+            <span class="chip">Worldwide shipping</span>
+            <span class="chip">Premium support</span>
+          </div>
+        </div>
+        <div class="lg:col-span-7 grid sm:grid-cols-3 gap-6 text-sm">
+          <div>
+            <div class="text-xs tracking-[.18em] text-black/55">SHOP</div>
+            <div class="mt-3 grid gap-2">
+              <a class="hover:underline" href="#ready-to-wear" data-page="ready">Ready‑to‑Wear</a>
+              <a class="hover:underline" href="#featured" data-scroll="#featured" data-page="home">Featured</a>
+              <a class="hover:underline" href="#new" data-scroll="#new-arrivals" data-page="home">New Arrivals</a>
+              <a class="hover:underline" href="#fragrances" data-page="fragrance">Fragrances</a>
+              <a class="hover:underline" href="#skincare" data-page="skincare">Skincare</a>
+            </div>
+          </div>
+          <div>
+            <div class="text-xs tracking-[.18em] text-black/55">HELP</div>
+            <div class="mt-3 grid gap-2">
+              <a class="hover:underline" href="#contact" data-scroll="#contact" data-page="home">Contact</a>
+              <button class="text-left hover:underline" id="btnShipping" type="button">Shipping</button>
+              <button class="text-left hover:underline" id="btnReturns" type="button">Returns</button>
+            </div>
+          </div>
+          <div>
+            <div class="text-xs tracking-[.18em] text-black/55">NEWSLETTER</div>
+            <div class="mt-3">
+              <div class="flex gap-2">
+                <input id="emailInput" class="w-full bg-white/70 border border-black/10 rounded-2xl px-4 py-3 text-sm outline-none focus:border-black/20 focus:bg-white" placeholder="Email address" />
+                <button class="btn btn-primary px-5" id="btnSubscribe" type="button">Join</button>
+              </div>
+              <p class="mt-2 text-xs text-black/50">No spam — only curated drops and styling notes.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="max-w-7xl mx-auto px-5 sm:px-6 pb-8 text-xs text-black/45 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+        <div>© <span id="year"></span> VIRELLE. All rights reserved.</div>
+        <div class="flex gap-4">
+          <span>Privacy</span>
+          <span>Terms</span>
+          <span>Cookies</span>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Toast -->
+  <div id="toast" class="toast">
+    <div class="card p-4 sm:p-5 flex items-start gap-3">
+      <div class="w-9 h-9 rounded-xl grid place-items-center bg-black/90 text-white" aria-hidden="true">✓</div>
+      <div class="flex-1">
+        <div class="font-medium" id="toastTitle">Added to cart</div>
+        <div class="text-sm text-black/60" id="toastBody">Item added.</div>
+      </div>
+      <button class="btn btn-ghost px-3 py-2" id="toastClose" type="button" aria-label="Close toast">✕</button>
+    </div>
+  </div>
+
+  <!-- Cart + Checkout Drawer -->
+  <div id="cartOverlay" class="drawer-overlay hidden" aria-hidden="true"></div>
+  <aside id="cartDrawer" class="drawer hidden" aria-label="Shopping cart" role="dialog" aria-modal="true">
+    <div class="drawer-header">
+      <div>
+        <div class="text-xs tracking-[.18em] text-black/55">CART</div>
+        <div class="brand-serif text-2xl leading-tight">Your selection</div>
+      </div>
+      <div class="flex items-center gap-2">
+        <button id="btnCartClear" class="btn btn-ghost px-4 py-2" type="button">Clear</button>
+        <button id="btnCartClose" class="btn btn-ghost px-4 py-2" type="button" aria-label="Close cart">✕</button>
+      </div>
+    </div>
+
+    <div class="drawer-body">
+      <div id="cartEmpty" class="card p-6">
+        <div class="brand-serif text-xl">Your cart is empty.</div>
+        <p class="mt-2 text-sm text-black/65">Add a few pieces you love — your premium edit will appear here.</p>
+        <div class="mt-5 flex gap-3">
+          <button id="btnShopReady" class="btn btn-primary" type="button">Shop Ready‑to‑Wear</button>
+          <button id="btnShopFrag" class="btn btn-ghost" type="button">Shop Fragrances</button>
+        </div>
+      </div>
+
+      <div id="cartItemsWrap" class="hidden">
+        <div id="cartItems" class="grid gap-3"></div>
+
+        <div class="mt-5 card p-5">
+          <div class="flex items-center justify-between text-sm">
+            <span class="text-black/60">Total</span>
+            <span class="text-lg font-medium" id="cartTotal">$0.00</span>
+          </div>
+          <div class="mt-4 flex flex-col sm:flex-row gap-3">
+            <button id="btnCheckout" class="btn btn-primary w-full justify-center py-3" type="button">Buy Now / Checkout</button>
+            <button id="btnContinueShopping" class="btn btn-ghost w-full justify-center py-3" type="button">Continue shopping</button>
+          </div>
+          <p class="mt-3 text-xs text-black/50">Taxes calculated at checkout (demo). Secure payments with luxury‑grade UI.</p>
+        </div>
+
+        <!-- Delivery process -->
+        <section id="checkoutPanel" class="mt-6 hidden">
+          <div class="flex items-end justify-between gap-4">
+            <div>
+              <div class="text-xs tracking-[.18em] text-black/55">DELIVERY</div>
+              <div class="brand-serif text-2xl leading-tight">Shipping & payment</div>
+              <p class="mt-2 text-sm text-black/65">Estimated delivery: <span class="font-medium" id="etaDate">—</span></p>
+            </div>
+            <button id="btnCheckoutBack" class="btn btn-ghost px-4 py-2" type="button">Back</button>
+          </div>
+
+          <div class="mt-5 grid lg:grid-cols-12 gap-5">
+            <div class="lg:col-span-7">
+              <form id="shippingForm" class="card p-5 grid gap-4">
+                <div class="text-xs tracking-[.18em] text-black/55">SHIPPING ADDRESS</div>
+                <div class="grid sm:grid-cols-2 gap-3">
+                  <div>
+                    <label class="text-xs text-black/60" for="shipName">Full name</label>
+                    <input id="shipName" class="lux-input" autocomplete="name" placeholder="Your name" required />
+                  </div>
+                  <div>
+                    <label class="text-xs text-black/60" for="shipPhone">Phone</label>
+                    <input id="shipPhone" class="lux-input" inputmode="tel" autocomplete="tel" placeholder="10-digit phone" required />
+                  </div>
+                </div>
+                <div>
+                  <label class="text-xs text-black/60" for="shipAddress1">Address</label>
+                  <input id="shipAddress1" class="lux-input" autocomplete="street-address" placeholder="House / Street" required />
+                </div>
+                <div class="grid sm:grid-cols-2 gap-3">
+                  <div>
+                    <label class="text-xs text-black/60" for="shipCity">City</label>
+                    <input id="shipCity" class="lux-input" autocomplete="address-level2" placeholder="City" required />
+                  </div>
+                  <div>
+                    <label class="text-xs text-black/60" for="shipState">State</label>
+                    <input id="shipState" class="lux-input" autocomplete="address-level1" placeholder="State" required />
+                  </div>
+                </div>
+                <div class="grid sm:grid-cols-2 gap-3">
+                  <div>
+                    <label class="text-xs text-black/60" for="shipPincode">Pincode</label>
+                    <input id="shipPincode" class="lux-input" inputmode="numeric" autocomplete="postal-code" placeholder="Postal code" required />
+                  </div>
+                  <div>
+                    <label class="text-xs text-black/60" for="shipCountry">Country</label>
+                    <input id="shipCountry" class="lux-input" autocomplete="country-name" value="India" required />
+                  </div>
+                </div>
+                <div class="flex items-center justify-between gap-3">
+                  <div class="text-xs text-black/55">Tracking updates will appear instantly (demo).</div>
+                  <button class="btn btn-primary px-6 py-3" id="btnPlaceOrder" type="submit">Place order</button>
+                </div>
+              </form>
+            </div>
+
+            <div class="lg:col-span-5 grid gap-5">
+              <div class="card p-5">
+                <div class="text-xs tracking-[.18em] text-black/55">ORDER TRACKING</div>
+                <ol id="trackingSteps" class="mt-4 tracking-steps">
+                  <li class="step is-active"><span class="dot"></span><span class="label">Order placed</span></li>
+                  <li class="step"><span class="dot"></span><span class="label">Packed</span></li>
+                  <li class="step"><span class="dot"></span><span class="label">Shipped</span></li>
+                  <li class="step"><span class="dot"></span><span class="label">Out for delivery</span></li>
+                  <li class="step"><span class="dot"></span><span class="label">Delivered</span></li>
+                </ol>
+                <div class="mt-4 text-xs text-black/55">Order ID: <span class="font-medium" id="orderId">—</span></div>
+              </div>
+
+              <div class="card p-5">
+                <div class="text-xs tracking-[.18em] text-black/55">PAYMENT OPTIONS</div>
+                <div class="mt-4 grid gap-2" id="paymentOptions">
+                  <label class="pay-option"><input type="radio" name="payment" value="cod" checked /><span>Cash on Delivery</span></label>
+                  <label class="pay-option"><input type="radio" name="payment" value="upi" /><span>UPI</span></label>
+                  <label class="pay-option"><input type="radio" name="payment" value="debit" /><span>Debit Card</span></label>
+                  <label class="pay-option"><input type="radio" name="payment" value="credit" /><span>Credit Card</span></label>
+                  <label class="pay-option"><input type="radio" name="payment" value="netbanking" /><span>Net Banking</span></label>
+                </div>
+                <div class="mt-4 card p-4 bg-white/70 border border-black/10">
+                  <div class="text-xs tracking-[.18em] text-black/55">PAYMENT NOTE</div>
+                  <div class="mt-2 text-sm text-black/65" id="paymentHint">Pay when it arrives. Open box delivery available (demo).</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </aside>
+
+  <script>
+    const $ = (sel, root=document) => root.querySelector(sel);
+    const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
+
+    const categories = [
+      "Dresses",
+      "Tops",
+      "Bottoms",
+      "Blazers",
+      "Outerwear",
+      "Co-ords",
+      "Knitwear",
+      "Denim",
+      "Shirts",
+      "Jumpsuits",
+      "Loungewear",
+      "Occasion Wear",
+      "Casual Wear",
+      "Formal Wear"
+    ];
+
+    // Curated catalog (luxury-ready cards with rating + quick add)
+    const catalog = [
+      { id:"dress-atelier", name:"Classic Ivory A‑Line Gown", category:"Formal Wear", price:2190, rating:4.9, reviews: 312, tag:"Atelier", image:"https://i.pinimg.com/736x/9a/9f/72/9a9f728e7a8acac5c5afe506fd045c51.jpg" },
+      { id:"dress-halter", name:"Noir Satin Halter Mini Dress", category:"Dresses", price:349, rating:4.6, reviews: 201, tag:"Satin", image:"https://i.pinimg.com/736x/1d/d1/00/1dd100aa241daf3c6cafa4fbbf8fa76e.jpg" },
+      { id:"dress-wrap", name:"Wrap Satin Dress", category:"Dresses", price:1900, rating:4.8, reviews: 98, tag:"Evening", image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRusQr4-vhwX1MlZfDkyaXWFBh5LBu325kr1g&s" },
+      { id:"dress-midi", name:"High‑Neck A‑Line Midi Dress", category:"Occasion Wear", price:625, rating:4.7, reviews: 88, tag:"Occasion", image:"https://i.pinimg.com/1200x/ee/d9/92/eed992770ba1dcf7b4043c0db454ec0e.jpg" },
+      { id:"dress-lace", name:"Vintage Lace‑Up Maxi Dress", category:"Occasion Wear", price:750, rating:4.6, reviews: 61, tag:"Limited", image:"https://i.pinimg.com/1200x/fe/43/dd/fe43ddf45f81e814afacf326580b1220.jpg" },
+      { id:"top-cowl", name:"Draped Satin Cowl‑Neck Top", category:"Tops", price:150, rating:4.7, reviews: 147, tag:"Drape", image:"https://i.pinimg.com/1200x/ce/6b/cf/ce6bcf8afd61d6d5c22666e81334d8b8.jpg" },
+      { id:"top-mock", name:"Draped Mock‑Neck Top", category:"Tops", price:150, rating:4.8, reviews: 233, tag:"Best seller", image:"https://i.pinimg.com/736x/cb/23/3c/cb233c95c5f6987882e0a9fe8d2b4de3.jpg" },
+      { id:"top-peplum", name:"Square‑Neck Peplum Blouse", category:"Tops", price:50, rating:4.4, reviews: 204, tag:"Everyday", image:"https://i.pinimg.com/1200x/6b/46/5a/6b465ad69c3bc1e0697baaeafad733ab.jpg" },
+      { id:"shirt-tunic", name:"Button‑Down Long Tunic", category:"Shirts", price:60, rating:4.5, reviews: 119, tag:"Crisp", image:"https://i.pinimg.com/1200x/6f/e1/0c/6fe10cc8dcb0fe33004f416ea9567ec0.jpg" },
+      { id:"shirt-gingham", name:"Gingham Drawstring‑Sleeve Blouse", category:"Shirts", price:75, rating:4.6, reviews: 93, tag:"Lightweight", image:"https://i.pinimg.com/1200x/d1/5c/d9/d15cd9d7f41fe3dfef9b94e924bc5a6a.jpg" },
+      { id:"blazer-belted", name:"Belted Blazer", category:"Blazers", price:1300, rating:4.9, reviews: 186, tag:"Tailored", image:"https://i.pinimg.com/1200x/6e/9f/4a/6e9f4a84c17979828c42f2ec586ecc2d.jpg" },
+      { id:"blazer-tux", name:"Tuxedo Blazer", category:"Blazers", price:1000, rating:4.7, reviews: 74, tag:"Evening", image:"https://i.pinimg.com/1200x/40/88/04/4088045c42f4b4b105e407e9088b428e.jpg" },
+      { id:"outer-trench", name:"Trench Coat", category:"Outerwear", price:1500, rating:4.7, reviews: 121, tag:"Icon", image:"https://i.pinimg.com/1200x/3f/2b/4c/3f2b4cf988a0e89ab2f18212cce770fa.jpg" },
+      { id:"outer-pea", name:"Pea Coat", category:"Outerwear", price:1500, rating:4.6, reviews: 84, tag:"Wool", image:"https://i.pinimg.com/1200x/c4/66/cf/c466cfa86a5273b2efa412c8d0010954.jpg" },
+      { id:"outer-leather", name:"Leather Jacket", category:"Outerwear", price:500, rating:4.5, reviews: 58, tag:"Modern", image:"https://i.pinimg.com/1200x/76/83/21/768321ebdac702cd7b3fab029ab6c7d6.jpg" },
+      { id:"bottom-palazzo", name:"Palazzo Pants", category:"Bottoms", price:150, rating:4.5, reviews: 63, tag:"Flow", image:"https://i.pinimg.com/736x/1c/42/65/1c42655a8748bf9994555a9951e14082.jpg" },
+      { id:"bottom-wide", name:"Wide‑Leg Pants", category:"Bottoms", price:120, rating:4.6, reviews: 109, tag:"Clean", image:"https://i.pinimg.com/1200x/ae/71/7b/ae717bc57532b8b580b966e64d629a1d.jpg" },
+      { id:"bottom-pleated", name:"Pleated Skirt", category:"Bottoms", price:250, rating:4.4, reviews: 72, tag:"Pleats", image:"https://i.pinimg.com/1200x/2d/40/c3/2d40c39a750c977163f9473d7bc99bb6.jpg" },
+      { id:"bottom-wrap", name:"Asymmetric Wrap Skirt", category:"Bottoms", price:150, rating:4.6, reviews: 56, tag:"Drape", image:"https://i.pinimg.com/1200x/d9/c4/43/d9c4436009661cdd7c00d226ac701c7d.jpg" },
+      { id:"denim-straight", name:"Straight‑Leg Denim", category:"Denim", price:89, rating:4.4, reviews: 141, tag:"Denim", image:"https://i.pinimg.com/736x/56/86/33/568633314c615a23b0393d92366aa412.jpg" },
+      { id:"denim-baggy", name:"Relaxed Baggy Jeans", category:"Denim", price:190, rating:4.3, reviews: 95, tag:"Relaxed", image:"https://i.pinimg.com/736x/08/de/08/08de0884213fa860c8f208be893c1ea2.jpg" },
+      { id:"coord-wrap", name:"Asymmetric Wrap Blouse Set", category:"Co-ords", price:420, rating:4.7, reviews: 92, tag:"Set", image:"https://i.pinimg.com/1200x/61/7f/83/617f832f884ef181e273dfdb5ded3ea9.jpg" },
+      { id:"coord-neutral", name:"Neutral Tailored Co‑ord Set", category:"Co-ords", price:560, rating:4.8, reviews: 66, tag:"Drop", image:"https://i.pinimg.com/1200x/4e/8d/a3/4e8da367118c65fafbb587d139220501.jpg" },
+      { id:"knit-sailor", name:"Sailor Knit Top", category:"Knitwear", price:140, rating:4.5, reviews: 114, tag:"Knit", image:"https://i.pinimg.com/1200x/b4/d4/0c/b4d40c4d5036687faa89e9f65d96782e.jpg" },
+      { id:"knit-cable", name:"Cable‑Knit Collared Pullover", category:"Knitwear", price:80, rating:4.4, reviews: 68, tag:"Soft", image:"https://i.pinimg.com/1200x/fd/04/21/fd04215c58159fa598d2c048453f102a.jpg" },
+      { id:"knit-turtle", name:"Turtleneck Knit Top", category:"Knitwear", price:140.8, rating:4.6, reviews: 79, tag:"Warm", image:"https://i.pinimg.com/1200x/a2/86/16/a2861661b0734505fef50c79fbb00959.jpg" },
+      { id:"jump-satin", name:"Satin One‑Piece Jumpsuit", category:"Jumpsuits", price:980, rating:4.7, reviews: 52, tag:"Satin", image:"https://i.pinimg.com/736x/21/73/54/217354b5866a00070f2de19086bc884a.jpg" },
+      { id:"jump-tailored", name:"Tailored Wide‑Leg Jumpsuit", category:"Jumpsuits", price:1120, rating:4.8, reviews: 44, tag:"Tailored", image:"https://i.pinimg.com/1200x/8d/fa/3f/8dfa3f7fb72f174ef26e39bbeb8453ce.jpg" },
+      { id:"lounge-sweat", name:"Minimal Sweat Pants", category:"Loungewear", price:70, rating:4.3, reviews: 113, tag:"Soft", image:"https://i.pinimg.com/736x/2d/33/6c/2d336c0523268f0a7898c1ec775a7eb4.jpg" },
+      { id:"lounge-cardigan", name:"Relaxed Cardigan", category:"Loungewear", price:2000, rating:4.4, reviews: 38, tag:"Cozy", image:"https://i.pinimg.com/1200x/c9/16/75/c91675bce20f20f7534e0a6c502ffa90.jpg" },
+      { id:"casual-hoodie", name:"Minimal Hoodie", category:"Casual Wear", price:500, rating:4.3, reviews: 55, tag:"Casual", image:"https://i.pinimg.com/1200x/be/9d/d5/be9dd561a2dd4a76167bc96df92f4be4.jpg" },
+      { id:"casual-bomber", name:"Bomber Jacket", category:"Casual Wear", price:1300, rating:4.5, reviews: 47, tag:"Casual", image:"https://i.pinimg.com/1200x/8d/fa/3f/8dfa3f7fb72f174ef26e39bbeb8453ce.jpg" },
+      { id:"formal-tux", name:"Tuxedo Jacket", category:"Formal Wear", price:1800, rating:4.8, reviews: 77, tag:"Formal", image:"https://i.pinimg.com/1200x/4e/8d/a3/4e8da367118c65fafbb587d139220501.jpg" },
+
+      { id:"dress-empire", name:"Empire Waist Dress", category:"Dresses", price:600, rating:4.5, reviews: 132, tag:"Classic", image:"https://i.pinimg.com/736x/7f/0b/ca/7f0bca7d58a4f96246f0ff45b9cf31bd.jpg" },
+      { id:"dress-babydoll", name:"Puff Sleeve Babydoll Mini Dress", category:"Dresses", price:600, rating:4.4, reviews: 89, tag:"Soft", image:"https://i.pinimg.com/1200x/7d/56/0d/7d560dd1cb09c4258790750af1bee529.jpg" },
+      { id:"dress-one-shoulder", name:"One‑Shoulder Dress", category:"Occasion Wear", price:1100, rating:4.7, reviews: 54, tag:"Statement", image:"https://ginghamandheels.com/cdn/shop/files/ED6529MA_CHO_05.png?v=1742383967&width=640" },
+      { id:"dress-tent", name:"Tent Dress", category:"Casual Wear", price:1000, rating:4.3, reviews: 41, tag:"Ease", image:"https://i.pinimg.com/736x/70/ae/22/70ae228dd4c379c44dcb014420461be1.jpg" },
+
+      { id:"top-turtleneck", name:"Turtle Neck Top", category:"Tops", price:140.8, rating:4.6, reviews: 97, tag:"Icon", image:"https://i.pinimg.com/1200x/a2/86/16/a2861661b0734505fef50c79fbb00959.jpg" },
+      { id:"top-ruffle", name:"Chiffon Ruffle Top", category:"Tops", price:85.2, rating:4.4, reviews: 73, tag:"Chiffon", image:"https://i.pinimg.com/1200x/c7/37/f5/c737f56b0ea6b9a36841a7ad8b3cb5e6.jpg" },
+      { id:"top-smock", name:"Smock Top", category:"Tops", price:70, rating:4.3, reviews: 58, tag:"Daywear", image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSba5bCoO4AotlKIg_3ACx1uZhJ7z8QYogpkw&s" },
+      { id:"top-tuxedo", name:"Tuxedo Top", category:"Tops", price:85.9, rating:4.5, reviews: 44, tag:"Sharp", image:"https://i.pinimg.com/1200x/ad/26/2a/ad262a7ffcec590008c3aa8c34bd0e75.jpg" },
+      { id:"jewelry-flower-charm-necklace", name:"Flower Charm Necklace", category:"Jewelry", price:120, rating:4.7, reviews: 86, tag:"Floral", image:"https://i.pinimg.com/1200x/7d/43/d6/7d43d67c7d8c723728bab778304e9104.jpg" },
+      { id:"jewelry-cherry-flower-necklace", name:"Cherry Flower Necklace", category:"Jewelry", price:130, rating:4.8, reviews: 102, tag:"Statement", image:"https://i.pinimg.com/736x/d8/5b/54/d85b549e5ffc44a9ade0391c83082a06.jpg" },
+      { id:"jewelry-de-gote-de-crystal", name:"De Gote De Crystal Necklace", category:"Jewelry", price:185, rating:4.9, reviews: 58, tag:"Crystal", image:"https://i.pinimg.com/1200x/50/33/34/5033346799897bc9bee963947d6fc1ab.jpg" },
+      { id:"jewelry-rhinestone-earrings", name:"Rhinestone Earrings", category:"Jewelry", price:95, rating:4.6, reviews: 120, tag:"Sparkle", image:"https://i.pinimg.com/1200x/9a/7d/84/9a7d8462259e20a6d71067619d6cee88.jpg" },
+      { id:"jewelry-diamond-choker-necklace", name:"Diamond Choker Necklace", category:"Jewelry", price:220, rating:4.8, reviews: 78, tag:"Diamond", image:"https://i.pinimg.com/1200x/7a/ef/9a/7aef9aa8a30fb72a03c24829634f9c93.jpg" },
+      { id:"jewelry-tulip-bracelet", name:"Tulip Bracelet", category:"Jewelry", price:85, rating:4.5, reviews: 64, tag:"Bracelet", image:"https://i.pinimg.com/736x/43/74/3e/43743ed46fdd078e80146940aa591594.jpg" },
+      { id:"watch-rapunzel", name:"Rapunzel Watch", category:"Watches", price:360, rating:4.7, reviews: 49, tag:"Storybook", image:"https://i.pinimg.com/736x/eb/fa/7e/ebfa7e286d9cb0ee68c887acdf1f45be.jpg" },
+      { id:"jewelry-tangled-ring", name:"Tangled Ring", category:"Jewelry", price:75, rating:4.4, reviews: 32, tag:"Ring", image:"https://i.pinimg.com/1200x/10/93/a2/1093a266f3c4a9c1beb907d96adac136.jpg" },
+      { id:"watch-apple", name:"Apple Watch", category:"Watches", price:420, rating:4.8, reviews: 195, tag:"Smart", image:"https://i.pinimg.com/736x/36/6d/7d/366d7d64e4f0633df7a740168027d672.jpg" },
+      { id:"jewelry-rhinestone-necklace", name:"Rhinestone Necklace", category:"Jewelry", price:140, rating:4.6, reviews: 88, tag:"Sparkle", image:"https://i.pinimg.com/736x/4e/3c/06/4e3c0664c648762c363e42f2618f7711.jpg" },
+      { id:"watch-rolex", name:"Rolex Watch", category:"Watches", price:4200, rating:4.9, reviews: 70, tag:"Luxury", image:"https://i.pinimg.com/1200x/b5/ac/7e/b5ac7e14daabc74976e2114c9ef166e2.jpg" },
+      { id:"watch-leather-strap", name:"Leather Strap Watch", category:"Watches", price:185, rating:4.7, reviews: 54, tag:"Classic", image:"https://i.pinimg.com/1200x/f0/0b/e6/f00be6be700a308d64b71b96d417d10d.jpg" },
+      { id:"watch-floral", name:"Floral Watch", category:"Watches", price:250, rating:4.5, reviews: 61, tag:"Floral", image:"https://i.pinimg.com/736x/80/d8/b7/80d8b7c6d8272ee7e647f2a228f3ad40.jpg" },
+      { id:"watch-retro", name:"Retro Watch", category:"Watches", price:215, rating:4.6, reviews: 47, tag:"Vintage", image:"https://i.pinimg.com/1200x/e7/bc/49/e7bc490116a17f350638adfd41bb4b47.jpg" },
+      { id:"watch-titan", name:"Titan Watch", category:"Watches", price:190, rating:4.5, reviews: 53, tag:"Everyday", image:"https://i.pinimg.com/736x/dd/65/63/dd6563a39abfa1e678e6d3b509d92d93.jpg" },
+      { id:"watch-canon", name:"Canon Watch", category:"Watches", price:330, rating:4.6, reviews: 39, tag:"Designer", image:"https://i.pinimg.com/1200x/11/30/9f/11309f6dfec701ece809e50ba21f9305.jpg" },
+      { id:"sunglasses-rectangle", name:"Rectangle Sunglasses", category:"Sunglasses", price:145, rating:4.6, reviews: 58, tag:"Modern", image:"https://i.pinimg.com/736x/96/fa/00/96fa007524d021429af48c84e1f3e8a7.jpg" },
+      { id:"sunglasses-metal-frame", name:"Metal Frame Sunglasses", category:"Sunglasses", price:150, rating:4.7, reviews: 69, tag:"Sleek", image:"https://i.pinimg.com/1200x/b3/68/7d/b3687d05df5e35053a993ca004a8310b.jpg" },
+      { id:"sunglasses-round-square", name:"Round Square Glasses", category:"Sunglasses", price:130, rating:4.4, reviews: 37, tag:"Hybrid", image:"https://i.pinimg.com/736x/41/18/97/411897b888556562e463e77716f81e8d.jpg" },
+      { id:"sunglasses-square-frame", name:"Square Frame Glasses", category:"Sunglasses", price:135, rating:4.5, reviews: 44, tag:"Bold", image:"https://i.pinimg.com/736x/5a/0d/63/5a0d635b8dd8348393c12c7eb4d61bde.jpg" },
+      { id:"sunglasses-prada-slate", name:"Prada Slate", category:"Sunglasses", price:420, rating:4.8, reviews: 55, tag:"Designer", image:"https://i.pinimg.com/1200x/4d/78/8c/4d788c414074ba821efe06f60a1212ee.jpg" },
+      { id:"sunglasses-gold-frame", name:"Gold Frame Sunglasses", category:"Sunglasses", price:165, rating:4.7, reviews: 60, tag:"Elegant", image:"https://i.pinimg.com/736x/af/aa/0e/afaa0efd4b845ea959b975243653d754.jpg" },
+      { id:"sunglasses-oval-celine", name:"Oval Celine Glasses", category:"Sunglasses", price:210, rating:4.8, reviews: 48, tag:"Chic", image:"https://i.pinimg.com/1200x/6e/90/42/6e904255bc4f2215ed5fb7fdc88db2d9.jpg" },
+      { id:"sunglasses-ysl-acetate", name:"YSL Acetate Sunglasses", category:"Sunglasses", price:380, rating:4.9, reviews: 52, tag:"Luxury", image:"https://i.pinimg.com/1200x/59/7f/ef/597fef4900e5e9fa4c2ea175932be6a2.jpg" },
+      { id:"sunglasses-monogram", name:"Monogram Sunglasses", category:"Sunglasses", price:340, rating:4.7, reviews: 45, tag:"Signature", image:"https://i.pinimg.com/1200x/7e/46/40/7e46402b204b29820e4b6f35a97fc98d.jpg" },
+      { id:"sunglasses-trapezium", name:"Trapezium Glasses", category:"Sunglasses", price:155, rating:4.5, reviews: 38, tag:"Geometric", image:"https://i.pinimg.com/736x/0c/e1/88/0ce188c4934132398a8861c901cb1c9a.jpg" },
+      { id:"sunglasses-round-black", name:"Round Black Glasses", category:"Sunglasses", price:120, rating:4.6, reviews: 50, tag:"Minimal", image:"https://i.pinimg.com/736x/46/ac/7a/46ac7ac380c29fe615fbef6597a9ac3e.jpg" },
+      { id:"bag-mini-square-pearl", name:"Mini Square Pearl Bag", category:"Bags", price:245, rating:4.7, reviews: 52, tag:"Pearl", image:"https://i.pinimg.com/1200x/7a/73/a1/7a73a1a5571b27c1e4ac005f57b77d0a.jpg" },
+      { id:"bag-hermes-shoulder", name:"Hermes Shoulder Bag", category:"Bags", price:2780, rating:4.9, reviews: 68, tag:"Luxury", image:"https://i.pinimg.com/1200x/5a/f9/f5/5af9f54c71c7321ef68c15ac67a745b3.jpg" },
+      { id:"bag-rouge-sellier", name:"Rouge Sellier", category:"Bags", price:1750, rating:4.8, reviews: 61, tag:"Designer", image:"https://i.pinimg.com/1200x/2a/a4/dc/2aa4dcbfcd4c026e76954e37f5992b54.jpg" },
+      { id:"bag-herbap-zip", name:"Herbap Zip Bag", category:"Bags", price:320, rating:4.6, reviews: 33, tag:"Everyday", image:"https://i.pinimg.com/1200x/21/5b/f0/215bf099545f0740ee4e14cd21c864a7.jpg" },
+      { id:"bag-satin-bow", name:"Satin Bow Bag", category:"Bags", price:210, rating:4.5, reviews: 45, tag:"Evening", image:"https://i.pinimg.com/1200x/90/01/91/9001915163bd025a6f0e298a1080bc5c.jpg" },
+      { id:"bag-pearl", name:"Pearl Bag", category:"Bags", price:295, rating:4.7, reviews: 39, tag:"Pearl", image:"https://i.pinimg.com/1200x/d3/f7/59/d3f759c933e72555d5058942d836c15b.jpg" },
+      { id:"bag-dior-bow", name:"Dior Bow Bag", category:"Bags", price:1320, rating:4.8, reviews: 44, tag:"Designer", image:"https://i.pinimg.com/736x/5f/e4/22/5fe42276f2c61b83ce5122b64fbc6b00.jpg" },
+      { id:"bag-gucci", name:"Gucci Bag", category:"Bags", price:1650, rating:4.8, reviews: 61, tag:"Icon", image:"https://i.pinimg.com/1200x/5e/f6/03/5ef60328e198c3a91087dddbb37ed546.jpg" },
+      { id:"bag-louis-vuitton", name:"Louis Vuitton Bag", category:"Bags", price:2450, rating:4.9, reviews: 55, tag:"Luxury", image:"https://i.pinimg.com/736x/6c/46/3a/6c463af4ab244cd67ac34c4774eabc78.jpg" },
+      { id:"bag-leather", name:"Leather Bag", category:"Bags", price:310, rating:4.6, reviews: 42, tag:"Classic", image:"https://i.pinimg.com/736x/67/d5/c1/67d5c1cfe9014f1a7b54cfef5dc9f3f4.jpg" },
+      { id:"bag-pochette-valley", name:"Pochette Valley Bag", category:"Bags", price:220, rating:4.5, reviews: 37, tag:"Compact", image:"https://i.pinimg.com/736x/4a/06/e3/4a06e3f31fcad7b307462e4c4ea3edc6.jpg" },
+      { id:"bag-zara", name:"Zara Bag", category:"Bags", price:160, rating:4.4, reviews: 84, tag:"Everyday", image:"https://i.pinimg.com/1200x/f8/e0/f9/f8e0f9760a40f612b6a39177a4be2929.jpg" },
+      { id:"bag-maje", name:"Maje Bag", category:"Bags", price:290, rating:4.7, reviews: 29, tag:"Signature", image:"https://i.pinimg.com/736x/5d/a8/5c/5da85c190d2b708b1de88ebc0aa263a2.jpg" },
+      { id:"hat-baseball-cap", name:"Baseball Cap", category:"Hats", price:65, rating:4.4, reviews: 42, tag:"Casual", image:"https://i.pinimg.com/1200x/9f/b1/3e/9fb13eb554d9d673e40b8090e5a77623.jpg" },
+      { id:"hat-junkyard-cap", name:"Junkyard Cap", category:"Hats", price:75, rating:4.5, reviews: 38, tag:"Vintage", image:"https://i.pinimg.com/1200x/0d/bf/10/0dbf1066e336a3cbbfb128b9178c93a3.jpg" },
+      { id:"hat-straw", name:"Straw Hat", category:"Hats", price:85, rating:4.6, reviews: 55, tag:"Summer", image:"https://i.pinimg.com/736x/14/56/2e/14562e774290856fce9a58be56f757a6.jpg" },
+      { id:"hat-feather", name:"Feather Hat", category:"Hats", price:145, rating:4.7, reviews: 31, tag:"Statement", image:"https://i.pinimg.com/1200x/23/26/45/23264596c7a89f8f163d965bd7da6c97.jpg" },
+      { id:"hat-flower", name:"Flower Hat", category:"Hats", price:110, rating:4.6, reviews: 44, tag:"Floral", image:"https://i.pinimg.com/1200x/9e/15/d9/9e15d9e670ee5036cf2603cb6c47fe5f.jpg" },
+      { id:"hat-beret", name:"Beret", category:"Hats", price:95, rating:4.7, reviews: 67, tag:"Classic", image:"https://i.pinimg.com/736x/80/ed/92/80ed920c742b63935bb04b55d8c0349f.jpg" },
+      { id:"hat-dior-beret", name:"Dior Vintage Beret", category:"Hats", price:250, rating:4.8, reviews: 48, tag:"Luxury", image:"https://i.pinimg.com/736x/43/29/b4/4329b4a58543518db23709b7a0d72495.jpg" },
+      { id:"hat-crochet", name:"Crochet Hat", category:"Hats", price:120, rating:4.5, reviews: 36, tag:"Textured", image:"https://i.pinimg.com/1200x/e5/28/d6/e528d654ac2fd146e1b73b1c5736b116.jpg" },
+      { id:"hat-faux-fur", name:"Faux Fur Hat", category:"Hats", price:135, rating:4.6, reviews: 41, tag:"Cozy", image:"https://i.pinimg.com/736x/5f/d8/ba/5fd8ba67b917d8394d97db459c75db6a.jpg" },
+      { id:"hat-cocktail", name:"Cocktail Hat", category:"Hats", price:180, rating:4.7, reviews: 29, tag:"Formal", image:"https://i.pinimg.com/1200x/ca/0d/d8/ca0dd8dbd0b588b215ad82339d4ba19b.jpg" },
+
+      { id:"shirt-wrap", name:"Asymmetric Wrap Blouse", category:"Shirts", price:70, rating:4.5, reviews: 67, tag:"Wrap", image:"https://i.pinimg.com/1200x/61/7f/83/617f832f884ef181e273dfdb5ded3ea9.jpg" },
+      { id:"shirt-cable", name:"Cable‑Knit Collared Shirt", category:"Shirts", price:120, rating:4.4, reviews: 39, tag:"Texture", image:"https://i.pinimg.com/1200x/fd/04/21/fd04215c58159fa598d2c048453f102a.jpg" },
+
+      { id:"bottom-cargo", name:"Cargo Pants", category:"Bottoms", price:210, rating:4.3, reviews: 86, tag:"Utility", image:"https://i.pinimg.com/736x/7f/db/c1/7fdbc1ab15d760838959720195db8f9e.jpg" },
+      { id:"bottom-bermuda", name:"Bermuda Pants", category:"Bottoms", price:250, rating:4.2, reviews: 43, tag:"Summer", image:"https://i.pinimg.com/736x/22/e3/dd/22e3ddd897433d7deca96fdbddd54595.jpg" },
+      { id:"bottom-bubble", name:"Bubble Skirt", category:"Bottoms", price:160, rating:4.4, reviews: 51, tag:"Trend", image:"https://i.pinimg.com/1200x/33/c4/4c/33c44c04b46c4200170cc86953aa5af0.jpg" },
+      { id:"bottom-ruffled", name:"Ruffled Skirt", category:"Bottoms", price:450, rating:4.5, reviews: 36, tag:"Romantic", image:"https://i.pinimg.com/1200x/d5/20/b0/d520b0e8e85c5706fd7f7d00e94f2d35.jpg" },
+
+      { id:"denim-flare", name:"Skinny Flare Jeans", category:"Denim", price:95, rating:4.2, reviews: 77, tag:"Flare", image:"https://i.pinimg.com/1200x/59/05/79/5905796a1e14531935c66029106a9961.jpg" },
+      { id:"denim-black", name:"Black Straight Denim", category:"Denim", price:110, rating:4.4, reviews: 62, tag:"Mono", image:"https://i.pinimg.com/736x/56/86/33/568633314c615a23b0393d92366aa412.jpg" },
+
+      { id:"outer-bomber", name:"Bomber Jacket (Satin)", category:"Outerwear", price:1300, rating:4.5, reviews: 48, tag:"Satin", image:"https://i.pinimg.com/1200x/8d/fa/3f/8dfa3f7fb72f174ef26e39bbeb8453ce.jpg" },
+      { id:"outer-rain", name:"Rain Coat", category:"Outerwear", price:2500, rating:4.6, reviews: 29, tag:"Weather", image:"https://i.pinimg.com/736x/f0/1b/b6/f01bb6740fd8878e223d21aa46ee9451.jpg" },
+      { id:"outer-fur", name:"Fur Cropped Coat", category:"Outerwear", price:3600, rating:4.7, reviews: 22, tag:"Luxury", image:"https://i.pinimg.com/1200x/8e/bf/37/8ebf378dbe19873fd42544b3ab1e3462.jpg" },
+
+      { id:"blazer-classic", name:"Classic Blazer", category:"Blazers", price:1000, rating:4.6, reviews: 64, tag:"Core", image:"https://i.pinimg.com/1200x/40/88/04/4088045c42f4b4b105e407e9088b428e.jpg" },
+      { id:"blazer-tux-jacket", name:"Tuxedo Jacket (Sharp Cut)", category:"Blazers", price:1800, rating:4.8, reviews: 31, tag:"Sharp", image:"https://i.pinimg.com/1200x/4e/8d/a3/4e8da367118c65fafbb587d139220501.jpg" },
+
+      { id:"knit-sailor-2", name:"Sailor Knit Top (Ivory)", category:"Knitwear", price:140, rating:4.5, reviews: 57, tag:"Ivory", image:"https://i.pinimg.com/1200x/b4/d4/0c/b4d40c4d5036687faa89e9f65d96782e.jpg" },
+      { id:"knit-cardigan-soft", name:"Soft Cardigan", category:"Knitwear", price:220, rating:4.4, reviews: 49, tag:"Soft", image:"https://i.pinimg.com/1200x/c9/16/75/c91675bce20f20f7534e0a6c502ffa90.jpg" },
+
+      { id:"lounge-hoodie", name:"Oversized Hoodie", category:"Loungewear", price:220, rating:4.3, reviews: 84, tag:"Comfy", image:"https://i.pinimg.com/1200x/be/9d/d5/be9dd561a2dd4a76167bc96df92f4be4.jpg" },
+      { id:"lounge-jogger", name:"Minimal Joggers", category:"Loungewear", price:95, rating:4.2, reviews: 71, tag:"Everyday", image:"https://i.pinimg.com/736x/2d/33/6c/2d336c0523268f0a7898c1ec775a7eb4.jpg" },
+
+      { id:"formal-satin-gown", name:"Satin Column Gown", category:"Formal Wear", price:2450, rating:4.9, reviews: 68, tag:"Atelier", image:"https://i.pinimg.com/1200x/d5/1e/0a/d51e0adf79761e4e608983b39effb276.jpg" },
+      { id:"formal-halter-gown", name:"Halter Neck Evening Gown", category:"Formal Wear", price:2790, rating:4.8, reviews: 44, tag:"Evening", image:"https://i.pinimg.com/1200x/23/a3/59/23a3594fbb34f1d82830a4676454caee.jpg" },
+      { id:"formal-dropwaist", name:"Drop‑Waist Satin Dress", category:"Formal Wear", price:3000, rating:4.7, reviews: 31, tag:"Satin", image:"https://i.etsystatic.com/12891838/r/il/058871/1941076840/il_570xN.1941076840_1vd9.jpg" },
+      { id:"formal-off-shoulder", name:"Off‑Shoulder Gown", category:"Formal Wear", price:1250, rating:4.7, reviews: 112, tag:"Best seller", image:"https://i.pinimg.com/1200x/23/a3/59/23a3594fbb34f1d82830a4676454caee.jpg" },
+      { id:"formal-ivory-gown", name:"Ivory Evening Gown", category:"Formal Wear", price:2190, rating:4.9, reviews: 97, tag:"Signature", image:"https://i.pinimg.com/736x/9a/9f/72/9a9f728e7a8acac5c5afe506fd045c51.jpg" },
+
+      { id:"jump-minimal-black", name:"Minimal Black Jumpsuit", category:"Jumpsuits", price:920, rating:4.6, reviews: 57, tag:"Minimal", image:"https://i.pinimg.com/736x/21/73/54/217354b5866a00070f2de19086bc884a.jpg" },
+      { id:"jump-strapless", name:"Strapless Wide‑Leg Jumpsuit", category:"Jumpsuits", price:1080, rating:4.7, reviews: 36, tag:"Evening", image:"https://i.pinimg.com/736x/53/52/75/535275c8aaa614cd9a4886972137cdd9.jpg" },
+      { id:"jump-tux", name:"Tuxedo Jumpsuit", category:"Jumpsuits", price:1490, rating:4.8, reviews: 29, tag:"Sharp", image:"https://i.pinimg.com/1200x/4e/8d/a3/4e8da367118c65fafbb587d139220501.jpg" },
+      { id:"jump-neutral", name:"Neutral Tailored Jumpsuit", category:"Jumpsuits", price:1120, rating:4.7, reviews: 41, tag:"Tailored", image:"https://i.pinimg.com/1200x/8d/fa/3f/8dfa3f7fb72f174ef26e39bbeb8453ce.jpg" },
+      { id:"jump-sleeve", name:"Long‑Sleeve Satin Jumpsuit", category:"Jumpsuits", price:1260, rating:4.6, reviews: 22, tag:"Satin", image:"https://i.pinimg.com/1200x/3e/84/95/3e84950a268dff09247a7c5cf2487040.jpg" },
+
+      { id:"coord-knit-set", name:"Knit Co‑ord Set", category:"Co-ords", price:460, rating:4.6, reviews: 73, tag:"Knit", image:"https://i.pinimg.com/1200x/b4/d4/0c/b4d40c4d5036687faa89e9f65d96782e.jpg" },
+      { id:"coord-blazer-set", name:"Tailored Blazer Co‑ord", category:"Co-ords", price:980, rating:4.8, reviews: 34, tag:"Tailored", image:"https://i.pinimg.com/1200x/6e/9f/4a/6e9f4a84c17979828c42f2ec586ecc2d.jpg" },
+      { id:"coord-satin-set", name:"Satin Co‑ord Set", category:"Co-ords", price:720, rating:4.7, reviews: 28, tag:"Satin", image:"https://i.pinimg.com/1200x/ce/6b/cf/ce6bcf8afd61d6d5c22666e81334d8b8.jpg" },
+      { id:"coord-casual-set", name:"Casual Co‑ord Set", category:"Co-ords", price:380, rating:4.5, reviews: 59, tag:"Casual", image:"https://i.pinimg.com/1200x/6f/e1/0c/6fe10cc8dcb0fe33004f416ea9567ec0.jpg" },
+      { id:"coord-evening-set", name:"Evening Co‑ord Set", category:"Co-ords", price:890, rating:4.7, reviews: 26, tag:"Evening", image:"https://i.pinimg.com/1200x/23/a3/59/23a3594fbb34f1d82830a4676454caee.jpg" },
+
+      { id:"outer-parka", name:"Parka Jacket", category:"Outerwear", price:1600, rating:4.5, reviews: 33, tag:"Warm", image:"https://i.pinimg.com/1200x/c4/5b/6d/c45b6d2e976291760b53c90783315dfe.jpg" },
+      { id:"outer-windbreaker", name:"Windbreaker", category:"Outerwear", price:1500, rating:4.4, reviews: 27, tag:"Light", image:"https://i.pinimg.com/1200x/66/6d/a2/666da26394dd676585ca64ae24cda2a9.jpg" },
+      { id:"outer-poncho", name:"Poncho", category:"Outerwear", price:3000, rating:4.3, reviews: 18, tag:"Drape", image:"https://i.pinimg.com/1200x/ea/c5/5d/eac55d15d979184be9221e42d1abd991.jpg" },
+      { id:"outer-checked", name:"Checked Jacket", category:"Outerwear", price:4000, rating:4.7, reviews: 12, tag:"Statement", image:"https://i.pinimg.com/1200x/87/cd/76/87cd767787c37869e24c4da2557a57d2.jpg" },
+      { id:"outer-cardigan", name:"Longline Cardigan", category:"Outerwear", price:2000, rating:4.4, reviews: 21, tag:"Layer", image:"https://i.pinimg.com/1200x/c9/16/75/c91675bce20f20f7534e0a6c502ffa90.jpg" },
+
+      { id:"top-tank", name:"Minimal Tank Top", category:"Tops", price:45, rating:4.3, reviews: 211, tag:"Essential", image:"https://i.pinimg.com/736x/7c/9e/9a/7c9e9a3a79ff2610759c619951c15703.jpg" },
+      { id:"top-long-sleeve", name:"Long Sleeve Top", category:"Tops", price:40, rating:4.2, reviews: 184, tag:"Essential", image:"https://i.pinimg.com/1200x/99/e8/db/99e8dbcbc6c62595d68353f2ffec403d.jpg" },
+      { id:"top-tube", name:"Tube Top", category:"Tops", price:40, rating:4.1, reviews: 143, tag:"Minimal", image:"https://i.pinimg.com/736x/c5/03/bb/c503bbe3dc14d1143a858cc22998df52.jpg" }
+    ];
+
+    const soldOut = [
+      { name:"Off‑Shoulder Gown", note:"Restock soon", image:"https://i.pinimg.com/1200x/23/a3/59/23a3594fbb34f1d82830a4676454caee.jpg" },
+      { name:"Belted Blazer", note:"Waitlist open", image:"https://i.pinimg.com/1200x/6e/9f/4a/6e9f4a84c17979828c42f2ec586ecc2d.jpg" },
+      { name:"Trench Coat", note:"Seasonal return", image:"https://i.pinimg.com/1200x/3f/2b/4c/3f2b4cf988a0e89ab2f18212cce770fa.jpg" },
+      { name:"Sailor Knit Top", note:"Limited yarn", image:"https://i.pinimg.com/1200x/b4/d4/0c/b4d40c4d5036687faa89e9f65d96782e.jpg" },
+    ];
+
+    const trendingOutfits = ["coord-neutral","blazer-belted","bottom-wide","outer-leather","dress-midi","jump-tailored","top-mock","denim-baggy"].map(id => catalog.find(p => p.id===id)).filter(Boolean);
+    const bestSellers = ["top-mock","blazer-belted","bottom-wide","dress-halter","outer-trench","denim-straight"].map(id => catalog.find(p => p.id===id)).filter(Boolean);
+    const featured = ["dress-wrap","coord-wrap","knit-cable","outer-pea","jump-tailored","denim-baggy"].map(id => catalog.find(p => p.id===id)).filter(Boolean);
+    const newArrivals = ["knit-sailor","dress-midi","denim-straight","jump-satin","top-cowl","coord-neutral","outer-leather","knit-turtle"].map(id => catalog.find(p => p.id===id)).filter(Boolean);
+    const limitedEdition = ["bag-hermes-shoulder","bag-louis-vuitton","bag-rouge-sellier","watch-rolex","formal-dropwaist","bag-mini-square-pearl"].map(id => catalog.find(p => p.id===id)).filter(Boolean).filter(p => p.price > 500);
+
+    const collections = [
+      { label:"Soft tailoring", icon:"✦" },
+      { label:"Neutral capsule", icon:"✶" },
+      { label:"Knit textures", icon:"✷" },
+      { label:"Satin evenings", icon:"✧" },
+      { label:"Clean monochrome", icon:"✺" },
+    ];
+
+    const formatPrice = (n) => `$${Number(n).toFixed(2)}`;
+    const clamp = (n,min,max) => Math.max(min, Math.min(max,n));
+
+    function starRow(rating){
+      const r = clamp(rating, 0, 5);
+      const full = Math.floor(r);
+      const half = (r - full) >= 0.5;
+      let out = "";
+      for(let i=0;i<5;i++){
+        if(i<full) out += "★";
+        else if(i===full && half) out += "⯪";
+        else out += "☆";
+      }
+      return out;
+    }
+
+    function productCard(p, opts={}){
+      const compact = !!opts.compact;
+      return `
+        <article class="card img-zoom snap-start" data-id="${p.id}" data-category="${p.category}">
+          <div class="relative overflow-hidden">
+            <img alt="${p.name}" class="w-full ${compact ? "h-[240px]" : "h-[290px]"} object-cover" src="${p.image}" loading="lazy" />
+            <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/50 via-black/0 to-transparent">
+              <span class="chip border-white/15 bg-white/15 text-white">${p.tag}</span>
+            </div>
+          </div>
+          <div class="p-5 flex flex-col gap-3">
+            <div class="flex items-start justify-between gap-3">
+              <div>
+                <div class="text-xs tracking-[.18em] text-black/50">${p.category}</div>
+                <h4 class="mt-1 font-medium leading-snug">${p.name}</h4>
+              </div>
+              <div class="text-right">
+                <div class="font-medium">${formatPrice(p.price)}</div>
+                <div class="text-xs text-black/55 whitespace-nowrap">${starRow(p.rating)} <span class="ml-1">(${p.reviews})</span></div>
+              </div>
+            </div>
+            <div class="flex items-center gap-2">
+              <button class="btn btn-primary w-full justify-center py-3 add-to-cart" type="button"
+                data-id="${p.id}" data-name="${p.name}" data-price="${p.price}">
+                Quick add
+              </button>
+              <button class="btn btn-ghost px-4 py-3" type="button" data-action="wishlist" data-name="${p.name}" aria-label="Add to wishlist">
+                ♡
+              </button>
+            </div>
+          </div>
+        </article>
+      `;
+    }
+
+    function soldOutCard(x){
+      return `
+        <article class="card img-zoom overflow-hidden">
+          <div class="relative">
+            <img alt="${x.name}" class="w-full h-[260px] object-cover" src="${x.image}" loading="lazy" />
+            <div class="absolute inset-0 bg-black/35"></div>
+            <div class="absolute top-4 left-4 chip border-white/15 bg-white/15 text-white">Sold out</div>
+            <div class="absolute bottom-4 left-4 right-4">
+              <div class="brand-serif text-white text-2xl leading-tight">${x.name}</div>
+              <div class="text-sm text-white/75">${x.note}</div>
+            </div>
+          </div>
+        </article>
+      `;
+    }
+
+    // Simple SPA routing (Home vs Ready-to-Wear)
+    function setPage(page){
+      const isHome = page === "home";
+      const isReady = page === "ready";
+      const isFragrance = page === "fragrance";
+      const isAccessories = page === "accessories";
+      const isSkincare = page === "skincare";
+      $("#page-home").classList.toggle("hidden", !isHome);
+      $("#page-ready").classList.toggle("hidden", !isReady);
+      $("#page-fragrance").classList.toggle("hidden", !isFragrance);
+      $("#page-accessories").classList.toggle("hidden", !isAccessories);
+      $("#page-skincare").classList.toggle("hidden", !isSkincare);
+
+      $$("[data-page]").forEach(a => a.setAttribute("aria-current", a.dataset.page === page ? "page" : "false"));
+
+      if(isHome){
+        document.title = "VIRELLE — Luxury Fashion";
+      } else if (isReady) {
+        document.title = "VIRELLE — Ready-to-Wear";
+      } else if (isAccessories) {
+        document.title = "VIRELLE — Accessories";
+      } else if (isSkincare) {
+        document.title = "VIRELLE — Skincare";
+      } else {
+        document.title = "VIRELLE — Fragrances";
+      }
+
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    // Cart (persisted) + Drawer UI
+    const CART_KEY = "virelle_cart_v1";
+    const cart = loadCart();
+
+    function loadCart(){
+      try{
+        const raw = localStorage.getItem(CART_KEY);
+        const parsed = raw ? JSON.parse(raw) : [];
+        if(!Array.isArray(parsed)) return [];
+        return parsed
+          .filter(x => x && typeof x.id === "string")
+          .map(x => ({
+            id: String(x.id),
+            name: String(x.name || ""),
+            price: Number(x.price || 0),
+            quantity: clamp(Number(x.quantity || 1), 1, 99),
+            image: String(x.image || "")
+          }));
+      }catch{
+        return [];
+      }
+    }
+
+    function saveCart(){
+      try{ localStorage.setItem(CART_KEY, JSON.stringify(cart)); }catch{}
+    }
+
+    function cartCount(){ return cart.reduce((s, i) => s + i.quantity, 0); }
+    function cartTotal(){ return cart.reduce((s, i) => s + (i.price * i.quantity), 0); }
+    function updateCartBadge(){ $("#cartBadge").textContent = String(cartCount()); }
+
+    function findProductById(id){
+      return catalog.find(p => p.id === id) || fragrances.find(f => f.id === id) || skincare.find(s => s.id === id) || null;
+    }
+
+    function ensureCartImages(){
+      for(const item of cart){
+        if(item.image) continue;
+        const p = findProductById(item.id);
+        if(p?.image) item.image = p.image;
+      }
+    }
+
+    function setDrawerOpen(open){
+      const overlay = $("#cartOverlay");
+      const drawer = $("#cartDrawer");
+      overlay.classList.toggle("hidden", !open);
+      drawer.classList.toggle("hidden", !open);
+      overlay.setAttribute("aria-hidden", open ? "false" : "true");
+      document.documentElement.classList.toggle("no-scroll", open);
+      if(open){
+        ensureCartImages();
+        renderCart();
+        setTimeout(() => $("#btnCartClose")?.focus(), 50);
+      }
+    }
+
+    function cartItemRow(i){
+      const line = i.price * i.quantity;
+      const img = i.image || "https://images.unsplash.com/photo-1520975682031-a1e6d9e8d5d3?auto=format&fit=crop&w=900&q=80";
+      return `
+        <div class="cart-item card p-4 sm:p-5" data-cartid="${i.id}">
+          <div class="flex gap-4">
+            <div class="cart-thumb">
+              <img alt="${i.name}" src="${img}" loading="lazy" />
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="flex items-start justify-between gap-3">
+                <div class="min-w-0">
+                  <div class="text-xs tracking-[.18em] text-black/55">ITEM</div>
+                  <div class="mt-1 font-medium truncate">${i.name}</div>
+                </div>
+                <button class="btn btn-ghost px-3 py-2 remove-item" type="button" aria-label="Remove item" data-remove="${i.id}">Remove</button>
+              </div>
+              <div class="mt-3 flex flex-wrap items-center justify-between gap-3">
+                <div class="qty-stepper" role="group" aria-label="Quantity selector">
+                  <button class="qty-btn" type="button" data-qtyminus="${i.id}" aria-label="Decrease quantity">−</button>
+                  <input class="qty-input" value="${i.quantity}" inputmode="numeric" pattern="[0-9]*" aria-label="Quantity" data-qtyinput="${i.id}" />
+                  <button class="qty-btn" type="button" data-qtyplus="${i.id}" aria-label="Increase quantity">+</button>
+                </div>
+                <div class="text-right">
+                  <div class="text-xs text-black/55">Subtotal</div>
+                  <div class="font-medium">${formatPrice(line)}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderCart(){
+      const hasItems = cart.length > 0;
+      $("#cartEmpty").classList.toggle("hidden", hasItems);
+      $("#cartItemsWrap").classList.toggle("hidden", !hasItems);
+      $("#checkoutPanel").classList.add("hidden");
+
+      if(!hasItems){
+        $("#cartTotal").textContent = formatPrice(0);
+        $("#orderId").textContent = "—";
+        $("#etaDate").textContent = "—";
+        resetTrackingSteps();
+        updateCartBadge();
+        return;
+      }
+
+      $("#cartItems").innerHTML = cart.map(cartItemRow).join("");
+      $("#cartTotal").textContent = formatPrice(cartTotal());
+      updateCartBadge();
+      saveCart();
+    }
+
+    function resetTrackingSteps(){
+      const steps = $$("#trackingSteps .step");
+      steps.forEach((s, idx) => s.classList.toggle("is-active", idx === 0));
+    }
+
+    function setTrackingProgress(stepIndex){
+      const steps = $$("#trackingSteps .step");
+      steps.forEach((s, idx) => {
+        s.classList.toggle("is-done", idx < stepIndex);
+        s.classList.toggle("is-active", idx === stepIndex);
+      });
+    }
+
+    function setEtaDate(){
+      const base = new Date();
+      const days = 4 + Math.floor(Math.random() * 4); // 4-7 days
+      base.setDate(base.getDate() + days);
+      const fmt = base.toLocaleDateString(undefined, { weekday:"short", month:"short", day:"numeric" });
+      $("#etaDate").textContent = fmt;
+    }
+
+    function paymentHint(value){
+      const map = {
+        cod: "Pay when it arrives. Open box delivery available (demo).",
+        upi: "Instant UPI payment. You’ll be redirected to your UPI app (demo).",
+        debit: "Secure debit card payment with OTP verification (demo).",
+        credit: "Credit card payment with bank authentication (demo).",
+        netbanking: "Choose your bank and approve the transaction (demo)."
+      };
+      $("#paymentHint").textContent = map[value] || map.cod;
+    }
+
+    let toastTimer = null;
+    function showToast(title, body){
+      $("#toastTitle").textContent = title;
+      $("#toastBody").textContent = body;
+      $("#toast").classList.add("show");
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => $("#toast").classList.remove("show"), 2600);
+    }
+
+    // Render home sections
+    function renderHome(){
+      $("#soldOutGrid").innerHTML = soldOut.map(soldOutCard).join("");
+      $("#trendingOutfitsGrid").innerHTML = trendingOutfits.map(p => productCard(p, {compact:true})).join("");
+
+      $("#bestSellersRow").innerHTML = bestSellers.map(p => `
+        <div class="min-w-[280px] sm:min-w-[320px]">${productCard(p, {compact:true})}</div>
+      `).join("");
+
+      $("#featuredGrid").innerHTML = featured.map(p => productCard(p)).join("");
+      $("#newArrivalsGrid").innerHTML = newArrivals.map(p => productCard(p, {compact:true})).join("");
+
+      $("#collectionChips").innerHTML = collections.map(c => `<span class="chip">${c.icon} ${c.label}</span>`).join("");
+      const highestLimited = limitedEdition.reduce((best, item) => !best || item.price > best.price ? item : best, null);
+      $("#limitedEditionFeatured").innerHTML = highestLimited ? productCard(highestLimited) : "";
+
+      const fragBest = ["frag-bellavita-oud","frag-silk-musk","frag-mademoiselle","frag-miss-dior"].map(id => fragrances.find(f => f.id===id)).filter(Boolean);
+      $("#bestSellerFragrancesGrid").innerHTML = fragBest.map(fragranceCard).join("");
+    }
+
+    // Render RTW
+    let activeCategory = "All";
+    function categoryChip(label){
+      const active = label === activeCategory;
+      return `
+        <button type="button" class="chip ${active ? "border-black/20 bg-white" : ""}" data-filter="${label}">
+          ${label}
+        </button>
+      `;
+    }
+
+    function getFiltered(){
+      const q = ($("#searchInput").value || "").trim().toLowerCase();
+      return catalog.filter(p => {
+        const inCat = (activeCategory === "All") || (p.category === activeCategory);
+        const inSearch = !q || (p.name.toLowerCase().includes(q) || p.category.toLowerCase().includes(q) || (p.tag || "").toLowerCase().includes(q));
+        return inCat && inSearch;
+      });
+    }
+
+    function renderRTW(){
+      const list = getFiltered();
+      $("#rtwGrid").innerHTML = list.map(p => productCard(p)).join("");
+      $("#resultCount").textContent = `${list.length} item${list.length === 1 ? "" : "s"}`;
+    }
+
+    function renderCategoryBar(){
+      $("#rtwCategories").innerHTML = [categoryChip("All"), ...categories.map(categoryChip)].join("");
+    }
+
+    // Fragrances
+    const fragranceFamilies = ["All","Bella Vita","Floral","Woody","Citrus","Musk","Oud","Vanilla","Fresh","Luxury Collections"];
+    const fragrances = [
+      { id:"frag-bellavita-rose", name:"Bella Vita Rose", family:"Bella Vita", size:"100 ml", price:39, rating:4.6, reviews: 2140, tag:"Trending", image:"https://i.pinimg.com/736x/5b/c3/54/5bc35405c9d713679500a03269e721ac.jpg" },
+      { id:"frag-bellavita-date-woman", name:"Date Woman", family:"Bella Vita", size:"100 ml", price:41, rating:4.7, reviews: 986, tag:"New", image:"https://i.pinimg.com/736x/40/df/3f/40df3f7558928dcd95f0834ec780daa4.jpg" },
+      { id:"frag-bellavita-oud", name:"Bella Vita Oud", family:"Bella Vita", size:"100 ml", price:45, rating:4.7, reviews: 1822, tag:"Oud", image:"https://i.pinimg.com/1200x/bb/f8/a3/bbf8a30f78eebc6d1cbf57a3c8622339.jpg" },
+      { id:"frag-ivory-floral", name:"Ivory Floral", family:"Floral", size:"50 ml", price:175, rating:4.6, reviews: 142, tag:"Soft", image:"https://i.pinimg.com/1200x/03/c0/04/03c00486e143833e9486d8a87e137e90.jpg" },
+      { id:"frag-rose-atelier", name:"Rose Atelier", family:"Floral", size:"75 ml", price:220, rating:4.8, reviews: 77, tag:"Atelier", image:"https://i.pinimg.com/736x/34/a1/c2/34a1c2efa1c7811a5b355957dca90188.jpg" },
+      { id:"frag-cedar-veils", name:"Cedar Veils", family:"Woody", size:"75 ml", price:210, rating:4.7, reviews: 96, tag:"Woody", image:"https://i.pinimg.com/1200x/f5/7d/04/f57d04310a76eb93d7e390ba60809b90.jpg" },
+      { id:"frag-citrus-veil", name:"Citrus Veil", family:"Citrus", size:"50 ml", price:150, rating:4.5, reviews: 123, tag:"Bright", image:"https://i.pinimg.com/1200x/bd/e2/f7/bde2f7d3bcc5068f7fc8a620a445a579.jpg" },
+      { id:"frag-silk-musk", name:"Silk Musk", family:"Musk", size:"50 ml", price:165, rating:4.7, reviews: 214, tag:"Clean", image:"https://i.pinimg.com/1200x/a1/28/0b/a1280b7ab68f4d5423d4abc2c7fe66ff.jpg" },
+      { id:"frag-oud-velvet", name:"Oud Velvet", family:"Oud", size:"75 ml", price:240, rating:4.8, reviews: 93, tag:"Oud", image:"https://i.pinimg.com/736x/05/96/2e/05962ef71f95d306d5f50e8ccbce049b.jpg" },
+      { id:"frag-vanilla-satin", name:"Vanilla Satin", family:"Vanilla", size:"50 ml", price:185, rating:4.7, reviews: 101, tag:"Vanilla", image:"https://i.pinimg.com/1200x/81/09/78/81097823aa39e523aa99125eebd676c2.jpg" },
+      { id:"frag-fresh-linen", name:"Fresh Linen", family:"Fresh", size:"75 ml", price:160, rating:4.6, reviews: 88, tag:"Fresh", image:"https://images.unsplash.com/photo-1615634260167-c8cdede054de?auto=format&fit=crop&w=1200&q=80" },
+      { id:"frag-lux-noir", name:"Noir Reserve", family:"Luxury Collections", size:"75 ml", price:260, rating:4.9, reviews: 64, tag:"Luxury", image:"https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=1200&q=80" },
+      { id:"frag-lux-gold", name:"Gold Atelier", family:"Luxury Collections", size:"100 ml", price:295, rating:4.9, reviews: 51, tag:"Gold", image:"https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&w=1200&q=80" },
+
+      { id:"frag-valentino", name:"Valentino", family:"Luxury Collections", size:"100 ml", price:225, rating:4.8, reviews: 842, tag:"Luxury", image:"https://i.pinimg.com/736x/1e/4f/a3/1e4fa3be159b592fd56725610e96e00a.jpg" },
+      { id:"frag-mademoiselle", name:"Mademoiselle", family:"Luxury Collections", size:"50 ml", price:198, rating:4.9, reviews: 1211, tag:"Icon", image:"https://i.pinimg.com/736x/6e/1e/07/6e1e07fd6418f7a2df0adc81dde6a8bc.jpg" },
+      { id:"frag-miss-dior", name:"Miss Dior", family:"Floral", size:"50 ml", price:175, rating:4.8, reviews: 1033, tag:"Floral", image:"https://i.pinimg.com/736x/7d/8c/29/7d8c294d06894cd4948229fee3d14702.jpg" },
+      { id:"frag-gucci-bamboo", name:"Bamboo Gucci", family:"Fresh", size:"75 ml", price:185, rating:4.7, reviews: 612, tag:"Fresh", image:"https://i.pinimg.com/736x/9c/20/41/9c204169e141f80715f58794644b6f5f.jpg" },
+      { id:"frag-sauvage", name:"Sauvage", family:"Woody", size:"100 ml", price:210, rating:4.9, reviews: 1580, tag:"Trending", image:"https://i.pinimg.com/736x/79/13/c6/7913c6429723d5ab11904e8a5e8e96c8.jpg" },
+      { id:"frag-versace", name:"Versace Eros", family:"Citrus", size:"100 ml", price:195, rating:4.8, reviews: 904, tag:"Citrus", image:"https://i.pinimg.com/736x/18/d0/71/18d071aaacae4a774a970b98ff8a1950.jpg" },
+      { id:"frag-reptile", name:"Reptile", family:"Oud", size:"100 ml", price:240, rating:4.7, reviews: 377, tag:"Oud", image:"https://i.pinimg.com/736x/47/1f/7f/471f7f8d1edbb02c506a9350b7964310.jpg" }
+    ];
+
+    const skincare = [
+      { id:"skin-hypoallergenic", name:"Hypoallergic Cleanser", type:"Cleanser", price:300, rating:4.8, reviews: 512, tag:"Gentle", image:"https://i.pinimg.com/736x/31/82/eb/3182ebab936e589df3e057314a794cde.jpg" },
+      { id:"skin-cerave", name:"CeraVe Facial Cleansing", type:"Cleanser", price:800, rating:4.7, reviews: 1823, tag:"Daily", image:"https://i.pinimg.com/736x/d0/17/9c/d0179cf64bb59a97af66bab12d3479ea.jpg" },
+      { id:"skin-minimalist", name:"Minimalist Cleanser", type:"Cleanser", price:780, rating:4.6, reviews: 678, tag:"Pure", image:"https://i.pinimg.com/736x/36/ff/d6/36ffd6a558e132912175495697a1a3c0.jpg" },
+      { id:"skin-cetaphil", name:"Cetaphil Cleanser", type:"Cleanser", price:400, rating:4.7, reviews: 2145, tag:"Dermatologist", image:"https://i.pinimg.com/1200x/15/07/a0/1507a057c9254c7d43c5e6c8229a2c05.jpg" },
+      { id:"skin-rice-water", name:"Rice Water Cleanser", type:"Cleanser", price:290, rating:4.8, reviews: 934, tag:"Natural", image:"https://i.pinimg.com/1200x/da/ba/5b/daba5b22bbe22903a8f44905e33e63c8.jpg" },
+      { id:"skin-garnier", name:"Garnier Cleanser", type:"Cleanser", price:1000, rating:4.5, reviews: 1567, tag:"Affordable", image:"https://i.pinimg.com/1200x/67/32/89/673289b5655aa10532f6354b244603e4.jpg" },
+      { id:"skin-anua", name:"Anua Cleanser", type:"Cleanser", price:600, rating:4.9, reviews: 823, tag:"K-Beauty", image:"https://i.pinimg.com/1200x/ef/89/37/ef8937058c226ad657953129bfecc1e1.jpg" },
+      { id:"skin-green-plum", name:"Green Plum Cleanser", type:"Cleanser", price:650, rating:4.7, reviews: 456, tag:"Brightening", image:"https://i.pinimg.com/736x/0b/81/87/0b8187a001ac059a94911c573d855c6c.jpg" },
+      { id:"skin-banila-co", name:"Banila Co Cleanser", type:"Cleanser", price:850, rating:4.8, reviews: 745, tag:"Hydrating", image:"https://i.pinimg.com/1200x/b4/91/1c/b4911cc683210aef7da25f030fa360a0.jpg" },
+      { id:"skin-torriden", name:"Torriden Moisturizer", type:"Moisturizer", price:750, rating:4.8, reviews: 634, tag:"Hydrating", image:"https://i.pinimg.com/1200x/aa/37/8b/aa378b743f18b7fe2d319f560cf559c0.jpg" },
+      { id:"skin-elfs", name:"Elf's Moisturizer", type:"Moisturizer", price:450, rating:4.5, reviews: 523, tag:"Budget-Friendly", image:"https://i.pinimg.com/1200x/7e/73/fe/7e73fe03ba3916307d801f4670738cca.jpg" },
+      { id:"skin-dot-key", name:"Dot & Key Moisturizer", type:"Moisturizer", price:800, rating:4.7, reviews: 712, tag:"Natural", image:"https://i.pinimg.com/1200x/af/0e/56/af0e56c9c1965c5128529d125fb4d6cd.jpg" },
+      { id:"skin-blue-snail", name:"Blue & Snail Moisturizer", type:"Moisturizer", price:550, rating:4.6, reviews: 589, tag:"Soothing", image:"https://i.pinimg.com/736x/b8/e3/bd/b8e3bd5de51b565d3baf8c13bb41c920.jpg" },
+      { id:"skin-minimalist-moist", name:"Minimalist Moisturizer", type:"Moisturizer", price:700, rating:4.7, reviews: 645, tag:"Pure", image:"https://i.pinimg.com/1200x/e0/a0/66/e0a0664393145c57829d65766c65ef63.jpg" },
+      { id:"skin-nivea", name:"Nivea Moisturizer", type:"Moisturizer", price:350, rating:4.4, reviews: 1423, tag:"Classic", image:"https://i.pinimg.com/736x/41/99/fd/4199fd7c7dbcaf2384401d9d7169c378.jpg" },
+      { id:"skin-cetaphil-moist", name:"Cetaphil Moisturizer", type:"Moisturizer", price:500, rating:4.6, reviews: 1089, tag:"Gentle", image:"https://i.pinimg.com/736x/e6/e0/c3/e6e0c33d8efba737f3d6b30c98fe655d.jpg" },
+      { id:"skin-ponds", name:"Ponds Moisturizer", type:"Moisturizer", price:400, rating:4.5, reviews: 967, tag:"Nourishing", image:"https://i.pinimg.com/736x/42/e6/b3/42e6b359ff1b67b2321abd8f388285b5.jpg" },
+      { id:"skin-johnson", name:"Johnson Moisturizer", type:"Moisturizer", price:300, rating:4.3, reviews: 845, tag:"Mild", image:"https://i.pinimg.com/736x/ae/0e/39/ae0e39f9beb8e669605149eca8986215.jpg" },
+      { id:"skin-biodance", name:"Biodance Moisturizer", type:"Moisturizer", price:850, rating:4.9, reviews: 456, tag:"K-Beauty", image:"https://i.pinimg.com/1200x/bb/49/11/bb491132d769128f29546d84a219ea0d.jpg" },
+      { id:"skin-centella-serum", name:"Centella Serum", type:"Serum", price:1200, rating:4.8, reviews: 892, tag:"Soothing", image:"https://i.pinimg.com/736x/c2/cf/1d/c2cf1d5d6646a90c328bde244002bc00.jpg" },
+      { id:"skin-peptide-serum", name:"Peptide Serum", type:"Serum", price:1500, rating:4.9, reviews: 756, tag:"Anti-Aging", image:"https://i.pinimg.com/736x/8a/56/4a/8a564a67c540b496b330a0d2c5ab2baf.jpg" },
+      { id:"skin-torriden-serum", name:"Torriden Serum", type:"Serum", price:1100, rating:4.7, reviews: 634, tag:"Hydrating", image:"https://i.pinimg.com/1200x/10/a5/43/10a54301050a18ff55d9d0d23100033f.jpg" },
+      { id:"skin-bakuchoi-serum", name:"Bakuchoi Serum", type:"Serum", price:1300, rating:4.8, reviews: 523, tag:"Brightening", image:"https://i.pinimg.com/736x/ae/72/d4/ae72d448629c53ba16b044fd5f6fe36e.jpg" },
+      { id:"skin-mixsoon-serum", name:"Mixsoon Serum", type:"Serum", price:1400, rating:4.9, reviews: 712, tag:"K-Beauty", image:"https://i.pinimg.com/736x/99/0d/8a/990d8aae5c7b27129ded27ca7dda4404.jpg" },
+      { id:"skin-peach-niacin-serum", name:"Peach Niacin Serum", type:"Serum", price:950, rating:4.6, reviews: 589, tag:"Brightening", image:"https://i.pinimg.com/1200x/a0/31/28/a03128be4e1b6bd59e54d8e38649539c.jpg" },
+      { id:"skin-beta-glucan-serum", name:"Beta Glucan Serum", type:"Serum", price:1000, rating:4.7, reviews: 645, tag:"Hydrating", image:"https://i.pinimg.com/1200x/95/16/db/9516dbdafc3f828b7d92f3113060599e.jpg" },
+      { id:"skin-orien-serum", name:"Orien Serum", type:"Serum", price:1250, rating:4.8, reviews: 423, tag:"Natural", image:"https://i.pinimg.com/1200x/21/49/36/214936a8d03f15766d7cb37585af86b0.jpg" },
+      { id:"skin-green-citrus-serum", name:"Green Citrus Serum", type:"Serum", price:1150, rating:4.7, reviews: 567, tag:"Refreshing", image:"https://i.pinimg.com/736x/44/51/93/445193dfe5935388942f60c400bd19e8.jpg" },
+      { id:"skin-centella-sunscreen", name:"Centella Sunscreen", type:"Sunscreen", price:850, rating:4.8, reviews: 723, tag:"SPF 50", image:"https://i.pinimg.com/736x/ae/be/06/aebe06ce0f036cf9e0accd01ffa12165.jpg" },
+      { id:"skin-anthelios-sunscreen", name:"Anthelios Sunscreen", type:"Sunscreen", price:950, rating:4.7, reviews: 892, tag:"SPF 50+", image:"https://i.pinimg.com/736x/9b/28/df/9b28dfe646b71ed18cfbad9f5f96984d.jpg" },
+      { id:"skin-sp50-sunscreen", name:"SP50 Sunscreen", type:"Sunscreen", price:650, rating:4.6, reviews: 654, tag:"SPF 50", image:"https://i.pinimg.com/736x/e8/63/55/e86355c2ce8cf602ee3a0c149038aa22.jpg" },
+      { id:"skin-dot-key-sunscreen", name:"Dot & Key Sunscreen", type:"Sunscreen", price:750, rating:4.8, reviews: 789, tag:"SPF 50", image:"https://i.pinimg.com/736x/50/86/9c/50869c72c745f402d6a08e82875b5f96.jpg" },
+      { id:"skin-mamaearth-sunscreen", name:"Mamaearth Sunscreen", type:"Sunscreen", price:550, rating:4.7, reviews: 1234, tag:"SPF 50", image:"https://i.pinimg.com/736x/c5/e7/9a/c5e79a23c6310abe38e510d8fcb64573.jpg" },
+      { id:"skin-plum-sp50-sunscreen", name:"Plum SP50 Sunscreen", type:"Sunscreen", price:600, rating:4.6, reviews: 567, tag:"SPF 50", image:"https://i.pinimg.com/1200x/b6/8b/ee/b68bee1ea451e34f8a649dc797eb915a.jpg" },
+      { id:"skin-minimalist-sunscreen", name:"Minimalist Sunscreen", type:"Sunscreen", price:700, rating:4.8, reviews: 891, tag:"SPF 50", image:"https://i.pinimg.com/1200x/59/e9/69/59e96983b2c5bf9307ac96b4ddd5c420.jpg" },
+      { id:"skin-aqua-sunscreen", name:"Aqua Sunscreen", type:"Sunscreen", price:450, rating:4.5, reviews: 678, tag:"SPF 30", image:"https://i.pinimg.com/1200x/39/87/d3/3987d3b450090541d03b1b1fa718117e.jpg" },
+      { id:"skin-lakme-sunscreen", name:"Lakme Sunscreen", type:"Sunscreen", price:500, rating:4.6, reviews: 945, tag:"SPF 50", image:"https://i.pinimg.com/736x/18/fb/49/18fb498b29e0de95269196782feb2489.jpg" },
+      { id:"skin-rose-clay-mask", name:"Rose Clay Mask", type:"Mask", price:450, rating:4.7, reviews: 823, tag:"Purifying", image:"https://i.pinimg.com/736x/96/d6/d4/96d6d4f0c7c4f7a716c83f78f1ba7bc6.jpg" },
+      { id:"skin-hyaluron-face-mask", name:"Hyaluron Face Mask", type:"Mask", price:600, rating:4.8, reviews: 756, tag:"Hydrating", image:"https://i.pinimg.com/1200x/bd/1e/15/bd1e15aa621be5ee373eb2dedaab8051.jpg" },
+      { id:"skin-biodance-mask", name:"Biodance Mask", type:"Mask", price:750, rating:4.9, reviews: 634, tag:"K-Beauty", image:"https://i.pinimg.com/1200x/7d/ee/1f/7dee1fe9262715db0de8bc83d4b6d7d4.jpg" },
+      { id:"skin-charcoal-mask", name:"Charcoal Mask", type:"Mask", price:350, rating:4.5, reviews: 1123, tag:"Detoxifying", image:"https://i.pinimg.com/736x/1f/b8/4e/1fb84e7769e708fc5a928b192bd5805b.jpg" },
+      { id:"skin-korean-mask", name:"Korean Mask", type:"Mask", price:550, rating:4.7, reviews: 892, tag:"Sheet Mask", image:"https://i.pinimg.com/1200x/44/1f/65/441f651c42dbc4baa8510c0c05ac96f5.jpg" },
+      { id:"skin-bioaqua-mask", name:"Bioaqua Mask", type:"Mask", price:400, rating:4.6, reviews: 1456, tag:"Hydrating", image:"https://i.pinimg.com/736x/ee/59/42/ee5942fdac23a2268e419f6a97522ef4.jpg" },
+      { id:"skin-garnier-mask", name:"Garnier Mask", type:"Mask", price:300, rating:4.4, reviews: 1789, tag:"Affordable", image:"https://i.pinimg.com/736x/b7/ea/84/b7ea84524c1616cb837d382563313b14.jpg" },
+      { id:"skin-watermelon-mask", name:"Watermelon Mask", type:"Mask", price:500, rating:4.6, reviews: 967, tag:"Refreshing", image:"https://i.pinimg.com/1200x/44/9b/20/449b2097bf32d88bbc0678b6530cbf2a.jpg" },
+      { id:"skin-essence-mask", name:"Essence Mask", type:"Mask", price:650, rating:4.8, reviews: 723, tag:"Brightening", image:"https://i.pinimg.com/736x/56/a3/08/56a308fffa109fe8d3722d2f86c3fef3.jpg" },
+      { id:"skin-seoul-collagen-mask", name:"Seoul Face Collagen Mask", type:"Mask", price:700, rating:4.7, reviews: 845, tag:"Anti-Aging", image:"https://i.pinimg.com/1200x/30/63/57/306357d8d6e69106b34ac30ef58d532a.jpg" }
+    ];
+
+    let activeFamily = "All";
+    function familyChip(label){
+      const active = label === activeFamily;
+      return `<button type="button" class="chip ${active ? "border-black/20 bg-white" : ""}" data-family="${label}">${label}</button>`;
+    }
+
+    function fragranceCard(f){
+      return `
+        <article class="card img-zoom snap-start" data-id="${f.id}" data-family="${f.family}">
+          <div class="relative overflow-hidden">
+            <img alt="${f.name}" class="w-full h-[290px] object-cover" src="${f.image}" loading="lazy" />
+            <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/50 via-black/0 to-transparent">
+              <span class="chip border-white/15 bg-white/15 text-white">${f.tag}</span>
+            </div>
+          </div>
+          <div class="p-5 flex flex-col gap-3">
+            <div class="flex items-start justify-between gap-3">
+              <div>
+                <div class="text-xs tracking-[.18em] text-black/50">${f.family} • ${f.size}</div>
+                <h4 class="mt-1 font-medium leading-snug">${f.name}</h4>
+              </div>
+              <div class="text-right">
+                <div class="font-medium">${formatPrice(f.price)}</div>
+                <div class="text-xs text-black/55 whitespace-nowrap">${starRow(f.rating)} <span class="ml-1">(${f.reviews})</span></div>
+              </div>
+            </div>
+            <div class="flex items-center gap-2">
+              <button class="btn btn-primary w-full justify-center py-3 add-to-cart" type="button"
+                data-id="${f.id}" data-name="${f.name}" data-price="${f.price}">
+                Quick add
+              </button>
+              <button class="btn btn-ghost px-4 py-3" type="button" data-action="wishlist" data-name="${f.name}" aria-label="Add to wishlist">♡</button>
+            </div>
+          </div>
+        </article>
+      `;
+    }
+
+    function getFragranceFiltered(){
+      const q = ($("#fragSearch").value || "").trim().toLowerCase();
+      return fragrances.filter(f => {
+        const inFam = (activeFamily === "All") || (f.family === activeFamily);
+        const inSearch = !q || (f.name.toLowerCase().includes(q) || f.family.toLowerCase().includes(q) || (f.tag||"").toLowerCase().includes(q));
+        return inFam && inSearch;
+      });
+    }
+
+    function renderFragrances(){
+      $("#fragFamilies").innerHTML = fragranceFamilies.map(familyChip).join("");
+      const list = getFragranceFiltered();
+      $("#fragGrid").innerHTML = list.map(fragranceCard).join("");
+      $("#fragCount").textContent = `${list.length} item${list.length === 1 ? "" : "s"}`;
+    }
+
+    const accessoryCategories = ["All","Jewelry","Watches","Bags","Sunglasses","Hats"];
+    const accessoryCategorySet = new Set(["Jewelry","Watches","Bags","Sunglasses","Hats"]);
+    let activeAccessoryCategory = "All";
+    function accessoryChip(label){
+      const active = label === activeAccessoryCategory;
+      return `
+        <button type="button" class="chip ${active ? "border-black/20 bg-white" : ""}" data-accessory="${label}">
+          ${label}
+        </button>
+      `;
+    }
+
+    function getAccessoryFiltered(){
+      return catalog.filter(p => {
+        if(!accessoryCategorySet.has(p.category)) return false;
+        return activeAccessoryCategory === "All" || p.category === activeAccessoryCategory;
+      });
+    }
+
+    function renderAccessories(){
+      $("#accessoriesCategories").innerHTML = accessoryCategories.map(accessoryChip).join("");
+      const list = getAccessoryFiltered();
+      $("#accessoriesGrid").innerHTML = list.map(p => productCard(p)).join("");
+    }
+
+    const skincareCategories = ["All","Cleanser","Moisturizer","Serum","Sunscreen","Mask"];
+    let activeSkincareCategory = "All";
+    function skincareChip(label){
+      const active = label === activeSkincareCategory;
+      return `
+        <button type="button" class="chip ${active ? "border-black/20 bg-white" : ""}" data-skincare="${label}">
+          ${label}
+        </button>
+      `;
+    }
+
+    function getSkincareFiltered(){
+      return skincare.filter(s => {
+        return activeSkincareCategory === "All" || s.type === activeSkincareCategory;
+      });
+    }
+
+    function skincareCard(s){
+      return `
+        <article class="card img-zoom snap-start" data-id="${s.id}" data-type="${s.type}">
+          <div class="relative overflow-hidden">
+            <img alt="${s.name}" class="w-full h-[290px] object-cover" src="${s.image}" loading="lazy" />
+            <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/50 via-black/0 to-transparent">
+              <span class="chip border-white/15 bg-white/15 text-white">${s.tag}</span>
+            </div>
+          </div>
+          <div class="p-5 flex flex-col gap-3">
+            <div class="flex items-start justify-between gap-3">
+              <div>
+                <div class="text-xs tracking-[.18em] text-black/50">${s.type}</div>
+                <h4 class="mt-1 font-medium leading-snug">${s.name}</h4>
+              </div>
+              <div class="text-right">
+                <div class="font-medium">${formatPrice(s.price)}</div>
+                <div class="text-xs text-black/55 whitespace-nowrap">${starRow(s.rating)} <span class="ml-1">(${s.reviews})</span></div>
+              </div>
+            </div>
+            <div class="flex items-center gap-2">
+              <button class="btn btn-primary w-full justify-center py-3 add-to-cart" type="button"
+                data-id="${s.id}" data-name="${s.name}" data-price="${s.price}">
+                Quick add
+              </button>
+              <button class="btn btn-ghost px-4 py-3" type="button" data-action="wishlist" data-name="${s.name}" aria-label="Add to wishlist">♡</button>
+            </div>
+          </div>
+        </article>
+      `;
+    }
+
+    function renderSkincare(){
+      $("#skincareCategories").innerHTML = skincareCategories.map(skincareChip).join("");
+      const list = getSkincareFiltered();
+      $("#skincareGrid").innerHTML = list.map(skincareCard).join("");
+    }
+
+    // Interactions
+    document.addEventListener("click", (e) => {
+      // Navbar dropdown item action
+      const ddItem = e.target.closest("[data-navaction]");
+      if(ddItem){
+        const group = ddItem.dataset.navaction;
+        const sub = ddItem.dataset.sub;
+        if(group === "ready"){
+          setPage("ready");
+          activeCategory = sub || "All";
+          renderCategoryBar();
+          renderRTW();
+          showToast("Ready‑to‑Wear", sub === "All" ? "Showing all pieces." : `Filtered: ${sub}`);
+        } else if (group === "fragrance") {
+          setPage("fragrance");
+          activeFamily = sub || "All";
+          renderFragrances();
+          showToast("Fragrances", sub === "All" ? "Showing all scents." : `Filtered: ${sub}`);
+        } else if (group === "accessories") {
+          setPage("accessories");
+          activeAccessoryCategory = sub || "All";
+          renderAccessories();
+          showToast("Accessories", sub === "All" ? "Showing all accessories." : `Filtered: ${sub}`);
+        } else if (group === "skincare") {
+          setPage("skincare");
+          activeSkincareCategory = sub || "All";
+          renderSkincare();
+          showToast("Skincare", sub === "All" ? "Showing all skincare products." : `Filtered: ${sub}`);
+        } else {
+          showToast("Collection", `${sub || group} — coming soon (demo).`);
+        }
+        $("#mobileMenu").classList.add("hidden");
+        $("#btnMenu")?.setAttribute("aria-expanded", "false");
+        closeAllNavDropdowns();
+        return;
+      }
+
+      const pageLink = e.target.closest("[data-page]");
+      if(pageLink){
+        e.preventDefault();
+        const targetPage = pageLink.dataset.page;
+        setPage(targetPage);
+
+        const setCat = pageLink.dataset.setcategory;
+        if(setCat && targetPage === "ready"){
+          activeCategory = setCat;
+          renderCategoryBar();
+          renderRTW();
+        }
+
+        const scrollTo = pageLink.dataset.scroll;
+        if(scrollTo && targetPage === "home"){
+          setTimeout(() => {
+            const el = $(scrollTo);
+            if(el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+          }, 250);
+        }
+
+        $("#mobileMenu").classList.add("hidden");
+        $("#btnMenu")?.setAttribute("aria-expanded", "false");
+        return;
+      }
+
+      const famBtn = e.target.closest("button[data-family]");
+      if(famBtn){
+        activeFamily = famBtn.dataset.family;
+        renderFragrances();
+        return;
+      }
+
+      const accessoryBtn = e.target.closest("[data-accessory]");
+      if(accessoryBtn){
+        activeAccessoryCategory = accessoryBtn.dataset.accessory;
+        renderAccessories();
+        return;
+      }
+
+      const skincareBtn = e.target.closest("[data-skincare]");
+      if(skincareBtn){
+        activeSkincareCategory = skincareBtn.dataset.skincare;
+        renderSkincare();
+        return;
+      }
+
+      const filterBtn = e.target.closest("[data-filter]");
+      if(filterBtn){
+        activeCategory = filterBtn.dataset.filter;
+        renderCategoryBar();
+        renderRTW();
+        return;
+      }
+
+      const addBtn = e.target.closest(".add-to-cart");
+      if(addBtn){
+        const id = addBtn.dataset.id;
+        const name = addBtn.dataset.name;
+        const price = Number(addBtn.dataset.price);
+        const p = findProductById(id);
+        const image = p?.image || "";
+        const existing = cart.find(i => i.id === id);
+        if(existing) existing.quantity = clamp(existing.quantity + 1, 1, 99);
+        else cart.push({ id, name, price, quantity: 1, image });
+        updateCartBadge();
+        saveCart();
+        showToast("Added to cart", `${name} — ${formatPrice(price)}`);
+        return;
+      }
+
+      const wl = e.target.closest('[data-action="wishlist"]');
+      if(wl){
+        showToast("Saved", `${wl.dataset.name} added to wishlist.`);
+        return;
+      }
+    });
+
+    // Desktop dropdown open/close with keyboard + outside click
+    function getNavDropdowns(){ return $$(".nav-dd[data-dropdown]"); }
+    function closeAllNavDropdowns(){
+      getNavDropdowns().forEach(dd => {
+        dd.dataset.open = "false";
+        const btn = dd.querySelector(".nav-dd-trigger");
+        if(btn) btn.setAttribute("aria-expanded", "false");
+      });
+    }
+    function openNavDropdown(dd){
+      if(!dd) return;
+      closeAllNavDropdowns();
+      dd.dataset.open = "true";
+      const btn = dd.querySelector(".nav-dd-trigger");
+      if(btn) btn.setAttribute("aria-expanded", "true");
+    }
+    function toggleNavDropdown(dd){
+      const isOpen = dd?.dataset.open === "true";
+      if(isOpen) closeAllNavDropdowns();
+      else openNavDropdown(dd);
+    }
+
+    // Init dropdown state
+    getNavDropdowns().forEach(dd => dd.dataset.open = "false");
+
+    document.addEventListener("click", (e) => {
+      const trigger = e.target.closest(".nav-dd-trigger");
+      if(trigger){
+        const dd = trigger.closest(".nav-dd");
+        toggleNavDropdown(dd);
+        return;
+      }
+
+      if(!e.target.closest(".nav-dd")) closeAllNavDropdowns();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if(e.key === "Escape"){
+        closeAllNavDropdowns();
+        return;
+      }
+
+      // Open dropdown on Enter/Space when focused on trigger
+      const focused = document.activeElement;
+      if((e.key === "Enter" || e.key === " ") && focused?.classList?.contains("nav-dd-trigger")){
+        e.preventDefault();
+        toggleNavDropdown(focused.closest(".nav-dd"));
+      }
+    });
+
+    // Open on focus (keyboard) and hover (pointer)
+    getNavDropdowns().forEach(dd => {
+      let closeTimer = null;
+      dd.addEventListener("mouseenter", () => {
+        clearTimeout(closeTimer);
+        openNavDropdown(dd);
+      });
+      dd.addEventListener("mouseleave", () => {
+        clearTimeout(closeTimer);
+        closeTimer = setTimeout(() => closeAllNavDropdowns(), 120);
+      });
+      dd.addEventListener("focusin", () => openNavDropdown(dd));
+      dd.addEventListener("focusout", (ev) => {
+        if(dd.contains(ev.relatedTarget)) return;
+        clearTimeout(closeTimer);
+        closeTimer = setTimeout(() => closeAllNavDropdowns(), 80);
+      });
+    });
+
+    $("#btnMenu").addEventListener("click", () => {
+      const open = !$("#mobileMenu").classList.contains("hidden");
+      $("#mobileMenu").classList.toggle("hidden", open);
+      $("#btnMenu").setAttribute("aria-expanded", open ? "false" : "true");
+    });
+
+    $("#toastClose").addEventListener("click", () => $("#toast").classList.remove("show"));
+
+    $("#bsPrev").addEventListener("click", () => $("#bestSellersRow").scrollBy({ left: -420, behavior: "smooth" }));
+    $("#bsNext").addEventListener("click", () => $("#bestSellersRow").scrollBy({ left: 420, behavior: "smooth" }));
+
+    $("#btnNotify").addEventListener("click", () => showToast("Noted", "You’ll be notified when the drop returns."));
+    $("#btnJoin").addEventListener("click", () => showToast("Welcome", "Member access activated (demo)."));
+    $("#btnSubscribe").addEventListener("click", () => {
+      const v = ($("#emailInput").value || "").trim();
+      showToast("Subscribed", v ? `Updates will be sent to ${v}.` : "You’re subscribed for updates.");
+      $("#emailInput").value = "";
+    });
+    $("#btnShipping").addEventListener("click", () => showToast("Shipping", "Free delivery over $120. Express options available."));
+    $("#btnReturns").addEventListener("click", () => showToast("Returns", "14‑day returns window. Items must be unworn (demo)."));
+
+    // Cart drawer controls
+    $("#btnCart").addEventListener("click", () => setDrawerOpen(true));
+    $("#btnCartClose").addEventListener("click", () => setDrawerOpen(false));
+    $("#cartOverlay").addEventListener("click", () => setDrawerOpen(false));
+
+    document.addEventListener("keydown", (e) => {
+      if(e.key === "Escape" && !$("#cartDrawer").classList.contains("hidden")) setDrawerOpen(false);
+    });
+
+    $("#btnCartClear").addEventListener("click", () => {
+      if(!cart.length) return;
+      cart.splice(0, cart.length);
+      saveCart();
+      renderCart();
+      showToast("Cleared", "Your cart is now empty.");
+    });
+
+    $("#btnContinueShopping").addEventListener("click", () => setDrawerOpen(false));
+    $("#btnShopReady").addEventListener("click", () => { setDrawerOpen(false); setPage("ready"); });
+    $("#btnShopFrag").addEventListener("click", () => { setDrawerOpen(false); setPage("fragrance"); });
+
+    $("#btnCheckout").addEventListener("click", () => {
+      if(!cart.length) return;
+      $("#checkoutPanel").classList.remove("hidden");
+      setEtaDate();
+      paymentHint(($('input[name="payment"]:checked')?.value) || "cod");
+      $("#orderId").textContent = "—";
+      resetTrackingSteps();
+      setTimeout(() => $("#shipName")?.focus(), 50);
+    });
+
+    $("#btnCheckoutBack").addEventListener("click", () => $("#checkoutPanel").classList.add("hidden"));
+
+    $("#paymentOptions").addEventListener("change", (e) => {
+      const t = e.target;
+      if(t && t.name === "payment") paymentHint(t.value);
+    });
+
+    $("#cartDrawer").addEventListener("click", (e) => {
+      const rem = e.target.closest("[data-remove]");
+      if(rem){
+        const id = rem.dataset.remove;
+        const idx = cart.findIndex(x => x.id === id);
+        if(idx >= 0){
+          const name = cart[idx].name;
+          cart.splice(idx, 1);
+          saveCart();
+          renderCart();
+          showToast("Removed", name || "Item removed.");
+        }
+        return;
+      }
+
+      const minus = e.target.closest("[data-qtyminus]");
+      if(minus){
+        const id = minus.dataset.qtyminus;
+        const it = cart.find(x => x.id === id);
+        if(!it) return;
+        it.quantity = clamp(it.quantity - 1, 1, 99);
+        saveCart();
+        renderCart();
+        return;
+      }
+
+      const plus = e.target.closest("[data-qtyplus]");
+      if(plus){
+        const id = plus.dataset.qtyplus;
+        const it = cart.find(x => x.id === id);
+        if(!it) return;
+        it.quantity = clamp(it.quantity + 1, 1, 99);
+        saveCart();
+        renderCart();
+        return;
+      }
+    });
+
+    $("#cartDrawer").addEventListener("input", (e) => {
+      const inp = e.target.closest("[data-qtyinput]");
+      if(!inp) return;
+      const id = inp.dataset.qtyinput;
+      const it = cart.find(x => x.id === id);
+      if(!it) return;
+      const cleaned = String(inp.value || "").replace(/[^\d]/g, "");
+      const n = clamp(Number(cleaned || 1), 1, 99);
+      it.quantity = n;
+      saveCart();
+      $("#cartTotal").textContent = formatPrice(cartTotal());
+      updateCartBadge();
+    });
+
+    $("#cartDrawer").addEventListener("blur", (e) => {
+      const inp = e.target.closest("[data-qtyinput]");
+      if(!inp) return;
+      renderCart();
+    }, true);
+
+    $("#shippingForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      if(!cart.length){
+        showToast("Cart empty", "Add an item before checkout.");
+        return;
+      }
+
+      const name = ($("#shipName").value || "").trim();
+      const phone = ($("#shipPhone").value || "").trim();
+      const address1 = ($("#shipAddress1").value || "").trim();
+      const city = ($("#shipCity").value || "").trim();
+      const state = ($("#shipState").value || "").trim();
+      const pin = ($("#shipPincode").value || "").trim();
+      const country = ($("#shipCountry").value || "").trim();
+      const pay = ($('input[name="payment"]:checked')?.value) || "cod";
+
+      if(!name || !phone || !address1 || !city || !state || !pin || !country){
+        showToast("Missing details", "Please complete the shipping address.");
+        return;
+      }
+
+      const orderId = `VRL-${Math.random().toString(16).slice(2, 6).toUpperCase()}-${Date.now().toString().slice(-4)}`;
+      $("#orderId").textContent = orderId;
+      setTrackingProgress(0);
+      showToast("Order placed", `Order ${orderId} confirmed • Payment: ${pay.toUpperCase()}`);
+
+      // Demo tracking animation
+      const steps = [1,2,3,4];
+      steps.forEach((s, idx) => setTimeout(() => setTrackingProgress(s), 900 * (idx + 1)));
+
+      // Clear cart after successful order (demo)
+      cart.splice(0, cart.length);
+      saveCart();
+      updateCartBadge();
+      setTimeout(() => {
+        renderCart();
+        $("#checkoutPanel").classList.add("hidden");
+      }, 800);
+    });
+    $("#btnSearch").addEventListener("click", () => {
+      setPage("ready");
+      setTimeout(() => $("#searchInput").focus(), 350);
+    });
+
+    $("#btnClear").addEventListener("click", () => {
+      $("#searchInput").value = "";
+      activeCategory = "All";
+      renderCategoryBar();
+      renderRTW();
+    });
+
+    $("#btnViewHome").addEventListener("click", () => setPage("home"));
+
+    $("#searchInput").addEventListener("input", () => renderRTW());
+
+    $("#btnFragClear").addEventListener("click", () => {
+      $("#fragSearch").value = "";
+      activeFamily = "All";
+      renderFragrances();
+    });
+    $("#btnFragHome").addEventListener("click", () => setPage("home"));
+    $("#fragSearch").addEventListener("input", () => renderFragrances());
+
+    // Init
+    $("#year").textContent = String(new Date().getFullYear());
+    renderHome();
+    renderCategoryBar();
+    renderRTW();
+    renderFragrances();
+    renderAccessories();
+    renderSkincare();
+    ensureCartImages();
+    updateCartBadge();
+
+    // Default route based on hash
+    const hash = (location.hash || "").toLowerCase();
+    if(hash.includes("skincare")) setPage("skincare");
+    else if(hash.includes("accessories")) setPage("accessories");
+    else if(hash.includes("ready")) setPage("ready");
+    else if(hash.includes("fragrances")) setPage("fragrance");
+    else setPage("home");
+  </script>
+</body>
+</html>
